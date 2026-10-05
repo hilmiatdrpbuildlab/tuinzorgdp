@@ -1,0 +1,18 @@
+<!-- @dsCard group="Forms" height=760 subtitle="Default, hover, focus, error, success, disabled; select, unit input, textarea and drop zone" -->
+<div class="tz sg-pad-lg" data-theme="light">
+  <div class="sg-grid-3">
+    <div class="tz-field"><label class="tz-label" for="ff1">Voornaam <span class="tz-label__req">*</span></label><input class="tz-input" id="ff1" placeholder=""></div>
+    <div class="tz-field"><label class="tz-label" for="ff2">Hover</label><input class="tz-input sg-hover-field" id="ff2" value="Jan"></div>
+    <div class="tz-field"><label class="tz-label" for="ff3">Focus</label><input class="tz-input sg-focus-field" id="ff3" value="Jan"></div>
+    <div class="tz-field tz-field--error"><label class="tz-label" for="ff4">E-mail <span class="tz-label__req">*</span></label><input class="tz-input" id="ff4" value="jan@" aria-invalid="true" aria-describedby="ff4e"><span class="tz-msg tz-msg--error" id="ff4e">{{icon:circle-x}} Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.be.</span></div>
+    <div class="tz-field tz-field--success"><label class="tz-label" for="ff5">Postcode</label><input class="tz-input" id="ff5" value="2000"><span class="tz-msg tz-msg--success">{{icon:check}} Binnen ons werkgebied</span></div>
+    <div class="tz-field"><label class="tz-label" for="ff6">Disabled</label><input class="tz-input" id="ff6" value="Niet beschikbaar" disabled></div>
+    <div class="tz-field"><label class="tz-label" for="ff7">Gewenste timing <span class="tz-label__opt">(optioneel)</span></label><div class="tz-select-wrap"><select class="tz-select" id="ff7"><option>Zo snel mogelijk</option><option>Binnen de maand</option></select>{{icon:chevron-down}}</div></div>
+    <div class="tz-field"><label class="tz-label" for="ff8">Oppervlakte gazon <span class="tz-label__opt">(optioneel)</span></label><div class="tz-input-group"><input class="tz-input" id="ff8" inputmode="numeric" value="250"><span class="tz-input-group__addon">m²</span></div><span class="tz-hint">Een schatting volstaat.</span></div>
+    <div class="tz-field"><label class="tz-label" for="ff9">Read-only</label><input class="tz-input" id="ff9" value="Offerte #2026-014" readonly></div>
+  </div>
+  <div class="sg-grid-2" style="margin-top: 24px">
+    <div class="tz-field"><label class="tz-label" for="ff10">Vragen en opmerkingen <span class="tz-label__req">*</span></label><textarea class="tz-textarea" id="ff10" maxlength="600" data-tz-count="ff10c">Graag een offerte voor het verticuteren van ons gazon.</textarea><span class="tz-count" id="ff10c"></span></div>
+    <div class="tz-field"><span class="tz-label">Foto's van uw tuin <span class="tz-label__opt">(optioneel)</span></span><label class="tz-drop">{{icon:upload}}<span><strong>Kies foto's</strong> of sleep ze hierheen</span><span class="tz-hint">JPG of PNG, maximaal 5 foto's van 10 MB</span><span class="tz-hint" data-tz-files></span><input type="file" accept="image/jpeg,image/png" multiple></label></div>
+  </div>
+</div>

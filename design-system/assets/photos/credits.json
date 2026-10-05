@@ -1,0 +1,542 @@
+[
+ {
+  "path": "assets/photos/client/schors-zijpad.jpg",
+  "alt": "Smal zijpad langs een witte gevel, ingestrooid met houtschors",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.01 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/grind-pad-tuinhuis.jpg",
+  "alt": "Wit grindpad langs een houten tuinhuis en het gazon",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.01 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/schors-border-plantenbakken.jpg",
+  "alt": "Border met houtschors en betonnen plantenbakken naast het gazon",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.01.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/schors-voortuin.jpg",
+  "alt": "Voortuin met vaste planten in een bed van houtschors",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.02 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/schors-kastanjehek.jpg",
+  "alt": "Gebogen border met houtschors langs een kastanjehouten hek",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.02 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Invoeren van materialen."
+ },
+ {
+  "path": "assets/photos/client/schors-aanhangwagen.jpg",
+  "alt": "Aanhangwagen vol houtschors met een groene kruiwagen ervoor",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/WhatsApp Image 2026-10-04 at 16.09.02.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Process photo, werkwijze step 3."
+ },
+ {
+  "path": "assets/photos/client/lamellen-poort.jpg",
+  "alt": "Antraciet lamellen gevlochten in een draadafsluiting met poort",
+  "category": "Lamellen",
+  "source": "client",
+  "original": "assets/Lamellen/WhatsApp Image 2026-10-04 at 16.09.00 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/lamellen-border.jpg",
+  "alt": "Draadafsluiting met zwarte lamellen achter een nieuwe border met siergrassen",
+  "category": "Lamellen",
+  "source": "client",
+  "original": "assets/Lamellen/WhatsApp Image 2026-10-04 at 16.09.00 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Lamellen plaatsen."
+ },
+ {
+  "path": "assets/photos/client/lamellen-containerplaats.jpg",
+  "alt": "Lamellen in een draadafsluiting rond een containerplaats met grind",
+  "category": "Lamellen",
+  "source": "client",
+  "original": "assets/Lamellen/WhatsApp Image 2026-10-04 at 16.09.00.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/afboording-border-gebogen.jpg",
+  "alt": "Gebogen border met tuinafboording in een gazon voor een haag",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.58 (1).jpeg",
+  "size": [
+   699,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/gazon-strepen-terras.jpg",
+  "alt": "Gestreept gemaaid gazon bij een overdekt terras",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.58.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Shadow of the photographer in the lawn; use small or crop."
+ },
+ {
+  "path": "assets/photos/client/afboording-tuinhuis.jpg",
+  "alt": "Rechte afboording met siergrassen voor een zwart tuinhuis",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.59 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/afboording-border-haag.jpg",
+  "alt": "Nieuwe border met afboording voor een haag",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.59 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/afboording-draadafsluiting.jpg",
+  "alt": "Lange strook met schors en afboording langs een draadafsluiting",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.59 (3).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/cortenstaal-border.jpg",
+  "alt": "Gebogen border met cortenstalen afboording rond een terras",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/WhatsApp Image 2026-10-04 at 16.08.59.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Tuinafboording. Feature project."
+ },
+ {
+  "path": "assets/photos/client/haag-gazon-ruim.jpg",
+  "alt": "Strak gesnoeide haag rond een ruim gazon onder een blauwe lucht",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.51 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/haag-tegelpad.jpg",
+  "alt": "Strak gesnoeide haag langs een tegelpad",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.51 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Snoeien."
+ },
+ {
+  "path": "assets/photos/client/haag-beuk-grind.jpg",
+  "alt": "Gesnoeide beukenhaag langs een grindstrook en een droog gazon",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.51.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/haag-beuk-achtertuin.jpg",
+  "alt": "Gesnoeide beukenhaag in een achtertuin in de herfst",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.52 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/haag-oprit.jpg",
+  "alt": "Gesnoeide haag langs een klinkeroprit",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.52 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/bestelwagen-aanhanger.jpg",
+  "alt": "Witte bestelwagen van TuinZorg DP met aanhangwagen voor een woning",
+  "category": "Bedrijf",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.52 (3).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Contact block and about."
+ },
+ {
+  "path": "assets/photos/client/haag-zijstrook.jpg",
+  "alt": "Hoge gesnoeide haag naast een gemaaide grasstrook langs een woning",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.52.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/bestelwagen-oprit.jpg",
+  "alt": "Bestelwagen met aanhangwagen op een oprit voor een gesnoeide haag",
+  "category": "Bedrijf",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.53 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/haag-achtertuin.jpg",
+  "alt": "Achtertuin met gesnoeide haag en struiken",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.53 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/haag-terras.jpg",
+  "alt": "Terras met plantenbakken voor een gesnoeide haag",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.53 (3).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/snoeiwerk-voortuin.jpg",
+  "alt": "Gesnoeide struiken en zuilvormige coniferen in een voortuin",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.53.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/gazon-gestreept-haag.jpg",
+  "alt": "Gestreept gemaaid gazon tussen strakke hagen onder een blauwe lucht",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.54 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Hero photo."
+ },
+ {
+  "path": "assets/photos/client/taxus-vormsnoei.jpg",
+  "alt": "Vormsnoei van taxuszuilen achter een betonnen brievenbus",
+  "category": "Snoeien",
+  "source": "client",
+  "original": "assets/Snoeien/WhatsApp Image 2026-10-04 at 16.08.54.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/gazon-afgepeld.jpg",
+  "alt": "Afgepelde, vlakke grond klaar voor een nieuw gazon",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/1.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/afpelmachine.jpg",
+  "alt": "Afpelmachine op een strook naast een woning",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/2.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/graszoden-pad.jpg",
+  "alt": "Grasmaaier en nieuw gazon langs een tegelpad",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.55 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/grasmat-voor-na.jpg",
+  "alt": "Voor en na: een vermoeid gazon en dezelfde tuin met een nieuwe grasmat",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.55 (2).jpeg",
+  "size": [
+   675,
+   1200
+  ],
+  "note": "Before/after collage."
+ },
+ {
+  "path": "assets/photos/client/grasmat-voortuin.jpg",
+  "alt": "Pas gelegde graszoden in een voortuin langs een pad",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.55.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Gazononderhoud."
+ },
+ {
+  "path": "assets/photos/client/verticuteren-smalle-tuin.jpg",
+  "alt": "Pas geverticuteerde smalle tuin met losgekomen mos en vilt",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.56 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-rijen.jpg",
+  "alt": "Geverticuteerd gazon met rijen opgeharkt materiaal",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.56 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-border.jpg",
+  "alt": "Geverticuteerd gazon naast een border",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.56 (3).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-grind.jpg",
+  "alt": "Geverticuteerd gazon naast een grindstrook",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.56 (4).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-voortuin.jpg",
+  "alt": "Geverticuteerde voortuin met aanhangwagen en bestelwagen op de achtergrond",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.56.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-kruiwagen.jpg",
+  "alt": "Geverticuteerd gazon met een kruiwagen en hark",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.57 (1).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/verticuteren-zijstrook.jpg",
+  "alt": "Geverticuteerde zijstrook naast een woning",
+  "category": "Gazon",
+  "source": "client",
+  "original": "assets/Verticuteren en grasmatten/WhatsApp Image 2026-10-04 at 16.08.57.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/maaien-overkapping.jpg",
+  "alt": "Gemaaid gazon gezien vanonder een houten overkapping",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/maaien/WhatsApp Image 2026-10-04 at 16.08.49 (1).jpeg",
+  "size": [
+   769,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/maaien-achtertuin.jpg",
+  "alt": "Gemaaide achtertuin met fruitbomen en tuinhuis",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/maaien/WhatsApp Image 2026-10-04 at 16.08.49 (2).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/maaien-hoog-gras.jpg",
+  "alt": "Hoog gras met paardenbloemen voor het maaien",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/maaien/WhatsApp Image 2026-10-04 at 16.08.49 (3).jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Before photo."
+ },
+ {
+  "path": "assets/photos/client/maaien-gestreept.jpg",
+  "alt": "Gestreept gemaaid gazon voor een beukenhaag",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/maaien/WhatsApp Image 2026-10-04 at 16.08.49.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Maaien en bosmaaien."
+ },
+ {
+  "path": "assets/photos/client/maaien-gazon-ruim.jpg",
+  "alt": "Ruim gemaaid gazon met strepen achter een woning",
+  "category": "Maaien",
+  "source": "client",
+  "original": "assets/maaien/WhatsApp Image 2026-10-04 at 16.08.50.jpeg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ }
+]

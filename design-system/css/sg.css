@@ -1,0 +1,19 @@
+/* Style-guide demo helpers. Used only by styleguide.html and the component previews; not part of the site CSS. */
+.sg-stack { display: grid; grid-template-columns: minmax(0, 1fr); }
+.sg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 24px; }
+.sg-pad { padding: 24px; min-width: 0; }
+.sg-pad-lg { padding: 40px 24px; }
+.sg-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.sg-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.sg-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sg-note { font: 700 11px/1.3 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.sg-hover { background: var(--accent-hover) !important; }
+.sg-hover .tz-btn__chip .tz-icon { transform: translateX(3px); }
+.sg-press { background: var(--accent-press) !important; transform: translateY(1px) scale(0.99); }
+.sg-focus { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sg-hover-outline { background: var(--tint) !important; border-color: var(--heading) !important; }
+.sg-hover-field { border-color: var(--heading) !important; }
+.sg-focus-field { border-color: var(--accent) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.sg-hover-card { border-color: var(--line-strong) !important; box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.sg-hover-card .tz-service__go { background: var(--accent); color: var(--on-accent); transform: rotate(-45deg); }
+@media (max-width: 860px) { .sg-grid-2, .sg-grid-3, .sg-grid-4 { grid-template-columns: minmax(0, 1fr); } }

@@ -1,0 +1,549 @@
+# CSS and Tailwind
+
+Both are generated from `tokens.json` by `python src/build.py`, so they never drift from the tokens. Use one of them, not both side by side with different values.
+
+## CSS variables
+`css/tokens.css` holds the font faces, every token as a custom property on `:root`, the theme overrides for `[data-theme="forest"]` and `[data-theme="sand"]`, and one class per type style. Load it first, then `css/tz.css` for the components. In SvelteKit import both in `src/app.css` and keep component styles in `tz.css` (global) so the class names in this system stay the contract; scoped `<style>` blocks are for layout tweaks only.
+
+```html
+<link rel="preload" href="/fonts/BricolageGrotesque-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/tz.css">
+<body class="tz">
+  <section data-theme="forest">…</section>
+</body>
+```
+
+```css
+/* GENERATED from tokens.json by src/build.py. Do not edit by hand. */
+
+@font-face { font-family: "Bricolage Grotesque"; src: url("../fonts/BricolageGrotesque-Variable.woff2") format("woff2"); font-weight: 200 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Figtree"; src: url("../fonts/Figtree-Variable.woff2") format("woff2"); font-weight: 300 900; font-style: normal; font-display: swap; }
+
+:root, [data-theme="light"] {
+  --forest-50: #eef4ec;
+  --forest-100: #dce8d8;
+  --forest-200: #b9d2b2;
+  --forest-500: #3f7a37;
+  --forest-700: #2d5a27;
+  --forest-800: #224620;
+  --forest-850: #1f4320;
+  --forest-900: #17321a;
+  --forest-950: #0e2111;
+  --leaf-300: #8bd48e;
+  --leaf-400: #6cc570;
+  --leaf-500: #4caf50;
+  --leaf-600: #3d9141;
+  --leaf-700: #2e7432;
+  --lime-300: #a6e07a;
+  --bark-100: #ece2dc;
+  --bark-500: #8d6e63;
+  --bark-700: #5c443c;
+  --sand-100: #f3eee6;
+  --sand-200: #e9e0d2;
+  --sage-50: #f4f7f4;
+  --sage-100: #e8eee8;
+  --sage-200: #d5ded5;
+  --sage-500: #7d8a7e;
+  --sage-600: #5f6d61;
+  --sage-700: #4d5a4f;
+  --charcoal-800: #333333;
+  --white: #ffffff;
+  --mist-200: #c8d8c4;
+  --mist-300: #a9bea5;
+  --moss-500: #6f8f6b;
+  --red-700: #b3261e;
+  --red-300: #ff9a8f;
+  --red-50: #fbe7e4;
+  --amber-700: #8a5300;
+  --amber-300: #f2c063;
+  --amber-50: #fbf0d9;
+  --blue-700: #1f5a99;
+  --blue-300: #93bdf0;
+  --blue-50: #e4edf8;
+  --bg: var(--sage-50);
+  --surface: var(--white);
+  --surface-sunken: var(--sage-100);
+  --surface-inverse: var(--forest-950);
+  --heading: var(--forest-800);
+  --ink: var(--charcoal-800);
+  --ink-soft: var(--sage-700);
+  --ink-faint: var(--sage-600);
+  --ink-inverse: var(--sage-50);
+  --line: var(--sage-200);
+  --line-strong: var(--sage-500);
+  --accent: var(--leaf-700);
+  --accent-hover: var(--forest-700);
+  --accent-press: var(--forest-800);
+  --on-accent: var(--white);
+  --accent-word: var(--leaf-700);
+  --link: var(--forest-700);
+  --highlight: var(--leaf-600);
+  --tint: var(--forest-50);
+  --focus: var(--forest-700);
+  --success: var(--forest-700);
+  --success-bg: var(--forest-50);
+  --warning: var(--amber-700);
+  --warning-bg: var(--amber-50);
+  --danger: var(--red-700);
+  --danger-bg: var(--red-50);
+  --info: var(--blue-700);
+  --info-bg: var(--blue-50);
+  --scrim: linear-gradient(180deg, rgba(14, 33, 17, 0) 30%, rgba(14, 33, 17, 0.82) 100%);
+  --overlay: linear-gradient(90deg, rgba(14, 33, 17, 0.88) 0%, rgba(14, 33, 17, 0.62) 50%, rgba(14, 33, 17, 0.12) 100%);
+  --shadow-sm: 0 1px 2px rgba(23, 50, 26, 0.08);
+  --shadow-md: 0 2px 6px rgba(23, 50, 26, 0.06), 0 12px 32px rgba(23, 50, 26, 0.10);
+  --shadow-lg: 0 24px 64px rgba(23, 50, 26, 0.22);
+}
+[data-theme="forest"] {
+  --bg: var(--forest-900);
+  --surface: var(--forest-850);
+  --surface-sunken: var(--forest-950);
+  --surface-inverse: var(--sage-50);
+  --heading: var(--sage-50);
+  --ink: var(--sage-50);
+  --ink-soft: var(--mist-200);
+  --ink-faint: var(--mist-300);
+  --ink-inverse: var(--forest-950);
+  --line: rgba(244, 247, 244, 0.14);
+  --line-strong: var(--moss-500);
+  --accent: var(--leaf-400);
+  --accent-hover: var(--leaf-300);
+  --accent-press: var(--leaf-500);
+  --on-accent: var(--forest-950);
+  --accent-word: var(--lime-300);
+  --link: var(--leaf-300);
+  --highlight: var(--leaf-400);
+  --tint: rgba(108, 197, 112, 0.12);
+  --focus: var(--lime-300);
+  --success: var(--leaf-300);
+  --success-bg: #21452a;
+  --warning: var(--amber-300);
+  --warning-bg: #3b3a1f;
+  --danger: var(--red-300);
+  --danger-bg: #43302a;
+  --info: var(--blue-300);
+  --info-bg: #1e3a3d;
+  --scrim: linear-gradient(180deg, rgba(14, 33, 17, 0) 30%, rgba(14, 33, 17, 0.82) 100%);
+  --overlay: linear-gradient(90deg, rgba(14, 33, 17, 0.88) 0%, rgba(14, 33, 17, 0.62) 50%, rgba(14, 33, 17, 0.12) 100%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
+}
+[data-theme="sand"] {
+  --bg: var(--sand-100);
+  --surface: var(--white);
+  --surface-sunken: var(--sand-200);
+  --surface-inverse: var(--forest-950);
+  --heading: var(--forest-800);
+  --ink: var(--charcoal-800);
+  --ink-soft: var(--bark-700);
+  --ink-faint: var(--bark-700);
+  --ink-inverse: var(--sage-50);
+  --line: rgba(92, 68, 60, 0.16);
+  --line-strong: var(--bark-500);
+  --accent: var(--leaf-700);
+  --accent-hover: var(--forest-700);
+  --accent-press: var(--forest-800);
+  --on-accent: var(--white);
+  --accent-word: var(--leaf-700);
+  --link: var(--forest-700);
+  --highlight: var(--bark-500);
+  --tint: var(--bark-100);
+  --focus: var(--forest-700);
+  --success: var(--forest-700);
+  --success-bg: var(--forest-50);
+  --warning: var(--amber-700);
+  --warning-bg: var(--amber-50);
+  --danger: var(--red-700);
+  --danger-bg: var(--red-50);
+  --info: var(--blue-700);
+  --info-bg: var(--blue-50);
+  --scrim: linear-gradient(180deg, rgba(14, 33, 17, 0) 30%, rgba(14, 33, 17, 0.82) 100%);
+  --overlay: linear-gradient(90deg, rgba(14, 33, 17, 0.88) 0%, rgba(14, 33, 17, 0.62) 50%, rgba(14, 33, 17, 0.12) 100%);
+}
+:root {
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 120px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 999px;
+  --container-max: 1240px;
+  --measure: 66ch;
+  --grid-gutter: 24px;
+  --page-margin: 40px;
+  --header-height: 84px;
+  --control-height: 52px;
+  --cms-sidebar: 264px;
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+.t-display { font-family: var(--font-display); font-size: 88px; line-height: 0.98; font-weight: 800; letter-spacing: -0.03em; }
+.t-h1 { font-family: var(--font-display); font-size: 60px; line-height: 1.02; font-weight: 750; letter-spacing: -0.025em; }
+.t-h2 { font-family: var(--font-display); font-size: 44px; line-height: 1.06; font-weight: 700; letter-spacing: -0.02em; }
+.t-h3 { font-family: var(--font-display); font-size: 30px; line-height: 1.15; font-weight: 700; letter-spacing: -0.015em; }
+.t-h4 { font-family: var(--font-display); font-size: 22px; line-height: 1.25; font-weight: 650; letter-spacing: -0.01em; }
+.t-h5 { font-family: var(--font-sans); font-size: 18px; line-height: 1.35; font-weight: 700; }
+.t-h6 { font-family: var(--font-sans); font-size: 16px; line-height: 1.4; font-weight: 700; }
+.t-lead { font-family: var(--font-sans); font-size: 20px; line-height: 1.55; font-weight: 400; }
+.t-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; font-weight: 400; }
+.t-body-strong { font-family: var(--font-sans); font-size: 17px; line-height: 1.65; font-weight: 650; }
+.t-small { font-family: var(--font-sans); font-size: 15px; line-height: 1.55; font-weight: 400; }
+.t-caption { font-family: var(--font-sans); font-size: 13px; line-height: 1.45; font-weight: 500; }
+.t-button { font-family: var(--font-sans); font-size: 16px; line-height: 1; font-weight: 650; letter-spacing: 0.005em; }
+.t-label { font-family: var(--font-sans); font-size: 13px; line-height: 1.3; font-weight: 700; letter-spacing: 0.08em; }
+.t-stat { font-family: var(--font-display); font-size: 48px; line-height: 1; font-weight: 800; letter-spacing: -0.02em; }
+```
+
+The display width is set by `css/tz.css`, because the width axis is not part of the token grammar:
+
+```css
+.t-display, .t-h1, .t-h2, .t-h3, .t-h4, .t-stat { font-variation-settings: "wdth" 92; text-wrap: balance; }
+```
+
+## Tailwind CSS
+`tailwind.config.js` maps every token to its CSS variable, so the themes keep working: `bg-surface text-ink`, `bg-accent text-on-accent hover:bg-accent-hover`, `border-line-strong`, `text-ink-soft`, `p-lg gap-md`, `rounded-md`, `rounded-full`, `shadow-md`, `font-display text-h1 display-width`, `bg-overlay`. Load `tokens.css` before the Tailwind output. For Tailwind v4, load it with `@config "./tailwind.config.js";`.
+
+```js
+/** GENERATED from tokens.json by src/build.py. Do not edit by hand.
+ *  Tailwind CSS v3 config for TuinZorg DP. Every value points at a CSS variable from css/tokens.css,
+ *  so load tokens.css first and the [data-theme] sections keep working: bg-surface, text-ink, bg-accent...
+ *  For Tailwind v4 load it with @config "./tailwind.config.js"; */
+module.exports = {
+  content: [
+    "./src/**/*.{html,js,ts,svelte}"
+  ],
+  darkMode: [
+    "selector",
+    "[data-theme=\"forest\"]"
+  ],
+  theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px"
+    },
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      forest: {
+        "50": "var(--forest-50)",
+        "100": "var(--forest-100)",
+        "200": "var(--forest-200)",
+        "500": "var(--forest-500)",
+        "700": "var(--forest-700)",
+        "800": "var(--forest-800)",
+        "850": "var(--forest-850)",
+        "900": "var(--forest-900)",
+        "950": "var(--forest-950)"
+      },
+      leaf: {
+        "300": "var(--leaf-300)",
+        "400": "var(--leaf-400)",
+        "500": "var(--leaf-500)",
+        "600": "var(--leaf-600)",
+        "700": "var(--leaf-700)"
+      },
+      lime: {
+        "300": "var(--lime-300)"
+      },
+      bark: {
+        "100": "var(--bark-100)",
+        "500": "var(--bark-500)",
+        "700": "var(--bark-700)"
+      },
+      sand: {
+        "100": "var(--sand-100)",
+        "200": "var(--sand-200)"
+      },
+      sage: {
+        "50": "var(--sage-50)",
+        "100": "var(--sage-100)",
+        "200": "var(--sage-200)",
+        "500": "var(--sage-500)",
+        "600": "var(--sage-600)",
+        "700": "var(--sage-700)"
+      },
+      charcoal: {
+        "800": "var(--charcoal-800)"
+      },
+      white: "var(--white)",
+      mist: {
+        "200": "var(--mist-200)",
+        "300": "var(--mist-300)"
+      },
+      moss: {
+        "500": "var(--moss-500)"
+      },
+      red: {
+        "700": "var(--red-700)",
+        "300": "var(--red-300)",
+        "50": "var(--red-50)"
+      },
+      amber: {
+        "700": "var(--amber-700)",
+        "300": "var(--amber-300)",
+        "50": "var(--amber-50)"
+      },
+      blue: {
+        "700": "var(--blue-700)",
+        "300": "var(--blue-300)",
+        "50": "var(--blue-50)"
+      },
+      bg: "var(--bg)",
+      surface: "var(--surface)",
+      "surface-sunken": "var(--surface-sunken)",
+      "surface-inverse": "var(--surface-inverse)",
+      heading: "var(--heading)",
+      ink: "var(--ink)",
+      "ink-soft": "var(--ink-soft)",
+      "ink-faint": "var(--ink-faint)",
+      "ink-inverse": "var(--ink-inverse)",
+      line: "var(--line)",
+      "line-strong": "var(--line-strong)",
+      accent: "var(--accent)",
+      "accent-hover": "var(--accent-hover)",
+      "accent-press": "var(--accent-press)",
+      "on-accent": "var(--on-accent)",
+      "accent-word": "var(--accent-word)",
+      link: "var(--link)",
+      highlight: "var(--highlight)",
+      tint: "var(--tint)",
+      focus: "var(--focus)",
+      success: "var(--success)",
+      "success-bg": "var(--success-bg)",
+      warning: "var(--warning)",
+      "warning-bg": "var(--warning-bg)",
+      danger: "var(--danger)",
+      "danger-bg": "var(--danger-bg)",
+      info: "var(--info)",
+      "info-bg": "var(--info-bg)"
+    },
+    fontFamily: {
+      display: [
+        "Bricolage Grotesque",
+        "Segoe UI",
+        "system-ui",
+        "sans-serif"
+      ],
+      sans: [
+        "Figtree",
+        "Segoe UI",
+        "system-ui",
+        "-apple-system",
+        "sans-serif"
+      ]
+    },
+    fontSize: {
+      display: [
+        "88px",
+        {
+          lineHeight: "0.98",
+          fontWeight: "800",
+          letterSpacing: "-0.03em"
+        }
+      ],
+      h1: [
+        "60px",
+        {
+          lineHeight: "1.02",
+          fontWeight: "750",
+          letterSpacing: "-0.025em"
+        }
+      ],
+      h2: [
+        "44px",
+        {
+          lineHeight: "1.06",
+          fontWeight: "700",
+          letterSpacing: "-0.02em"
+        }
+      ],
+      h3: [
+        "30px",
+        {
+          lineHeight: "1.15",
+          fontWeight: "700",
+          letterSpacing: "-0.015em"
+        }
+      ],
+      h4: [
+        "22px",
+        {
+          lineHeight: "1.25",
+          fontWeight: "650",
+          letterSpacing: "-0.01em"
+        }
+      ],
+      h5: [
+        "18px",
+        {
+          lineHeight: "1.35",
+          fontWeight: "700"
+        }
+      ],
+      h6: [
+        "16px",
+        {
+          lineHeight: "1.4",
+          fontWeight: "700"
+        }
+      ],
+      lead: [
+        "20px",
+        {
+          lineHeight: "1.55",
+          fontWeight: "400"
+        }
+      ],
+      body: [
+        "17px",
+        {
+          lineHeight: "1.65",
+          fontWeight: "400"
+        }
+      ],
+      "body-strong": [
+        "17px",
+        {
+          lineHeight: "1.65",
+          fontWeight: "650"
+        }
+      ],
+      small: [
+        "15px",
+        {
+          lineHeight: "1.55",
+          fontWeight: "400"
+        }
+      ],
+      caption: [
+        "13px",
+        {
+          lineHeight: "1.45",
+          fontWeight: "500"
+        }
+      ],
+      button: [
+        "16px",
+        {
+          lineHeight: "1",
+          fontWeight: "650",
+          letterSpacing: "0.005em"
+        }
+      ],
+      label: [
+        "13px",
+        {
+          lineHeight: "1.3",
+          fontWeight: "700",
+          letterSpacing: "0.08em"
+        }
+      ],
+      stat: [
+        "48px",
+        {
+          lineHeight: "1",
+          fontWeight: "800",
+          letterSpacing: "-0.02em"
+        }
+      ]
+    },
+    spacing: {
+      "0": "0px",
+      px: "1px",
+      "3xs": "var(--space-3xs)",
+      "2xs": "var(--space-2xs)",
+      xs: "var(--space-xs)",
+      sm: "var(--space-sm)",
+      md: "var(--space-md)",
+      lg: "var(--space-lg)",
+      xl: "var(--space-xl)",
+      "2xl": "var(--space-2xl)",
+      "3xl": "var(--space-3xl)",
+      "4xl": "var(--space-4xl)",
+      "5xl": "var(--space-5xl)"
+    },
+    borderRadius: {
+      none: "0px",
+      xs: "var(--radius-xs)",
+      sm: "var(--radius-sm)",
+      md: "var(--radius-md)",
+      lg: "var(--radius-lg)",
+      xl: "var(--radius-xl)",
+      full: "var(--radius-full)"
+    },
+    boxShadow: {
+      none: "none",
+      sm: "var(--shadow-sm)",
+      md: "var(--shadow-md)",
+      lg: "var(--shadow-lg)"
+    },
+    extend: {
+      maxWidth: {
+        container: "var(--container-max)",
+        measure: "var(--measure)"
+      },
+      height: {
+        header: "var(--header-height)",
+        control: "var(--control-height)"
+      },
+      width: {
+        sidebar: "var(--cms-sidebar)"
+      },
+      backgroundImage: {
+        scrim: "var(--scrim)",
+        overlay: "var(--overlay)"
+      },
+      transitionTimingFunction: {
+        out: "var(--ease-out)"
+      },
+      transitionDuration: {
+        fast: "var(--dur-fast)",
+        base: "var(--dur-base)",
+        slow: "var(--dur-slow)"
+      }
+    }
+  }
+};
+
+const plugin = require('tailwindcss/plugin');
+module.exports.plugins = [
+  plugin(({ addUtilities }) => addUtilities({
+    '.display-width': { fontVariationSettings: '"wdth" 92' },
+    '.tabular': { fontVariantNumeric: 'tabular-nums' },
+  })),
+];
+```
+
+Example, the primary button in Svelte with Tailwind:
+
+```svelte
+<a href="/offerte" class="group inline-flex items-center gap-xs h-control pl-[26px] pr-[7px] rounded-full bg-accent text-on-accent hover:bg-accent-hover active:bg-accent-press active:translate-y-px font-sans text-button transition-colors duration-fast ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus">
+  Offerte aanvragen
+  <span class="grid place-items-center size-[38px] rounded-full bg-white/15">
+    <ArrowRight class="size-[18px] transition-transform duration-base group-hover:translate-x-[3px]" aria-hidden="true" />
+  </span>
+</a>
+```

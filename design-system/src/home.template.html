@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl-BE" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuinonderhoud in [Gemeente] en omstreken | TuinZorg DP</title>
+<meta name="description" content="Professioneel en betrouwbaar tuinonderhoud in [Gemeente] en omstreken: maaien, snoeien, verticuteren, graszoden, lamellen, tuinafboording en schors of grind invoeren. Gratis offerte.">
+<link rel="icon" href="assets/logo/tz-mark.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/BricolageGrotesque-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/tz.css">
+<style>
+  /* Wireframe annotations (home-page.html only): section name, Svelte component and CMS source. */
+  .wf-toggle { position: fixed; z-index: 70; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: var(--amber-300); color: var(--forest-950); font: 700 14px/1 var(--font-sans); box-shadow: var(--shadow-md); cursor: pointer; }
+  .wf-on [data-annot] { position: relative; outline: 2px dashed var(--amber-700); outline-offset: -2px; }
+  .wf-on [data-annot]::before { content: attr(data-annot); position: absolute; z-index: 40; top: 8px; right: 8px; max-width: min(420px, 80vw); padding: 6px 10px; border-radius: 8px; background: var(--amber-300); color: var(--forest-950); font: 600 12px/1.4 var(--font-sans); white-space: pre-line; pointer-events: none; }
+  .wf-on .tz-hero-wrap[data-annot]::before { top: 20px; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LandscapingBusiness",
+  "name": "TuinZorg DP",
+  "slogan": "Tuinonderhoud met passie",
+  "url": "https://tuinzorgdp.be/",
+  "logo": "https://tuinzorgdp.be/logo.svg",
+  "image": "https://tuinzorgdp.be/og.jpg",
+  "telephone": "+32469413730",
+  "email": "info@tuinzorgdp.be",
+  "priceRange": "€€",
+  "address": { "@type": "PostalAddress", "streetAddress": "[Straat en nummer]", "postalCode": "[Postcode]", "addressLocality": "[Gemeente]", "addressRegion": "[Provincie]", "addressCountry": "BE" },
+  "geo": { "@type": "GeoCoordinates", "latitude": "[lat]", "longitude": "[lng]" },
+  "areaServed": [ { "@type": "City", "name": "[Gemeente]" }, { "@type": "City", "name": "[Gemeente 2]" } ],
+  "openingHoursSpecification": [ { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "[08:00]", "closes": "[18:00]" } ],
+  "sameAs": ["[Google Business-profiel URL]", "[Facebook URL]", "[Instagram URL]"],
+  "vatID": "BE[0000000000]",
+  "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Diensten", "itemListElement": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maaien en bosmaaien" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Verticuteren en graszoden leggen" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Onkruidbestrijding" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Snoeien" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lamellen plaatsen in draadafsluiting" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tuinafboording en cortenstaal" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Schors en grind invoeren" } }
+  ] }
+}
+</script>
+</head>
+<body class="tz" id="top">
+  <a class="tz-sr" href="#main">Naar de inhoud</a>
+  <div data-annot="01 · Header  →  Header.svelte&#10;Sticky. Logo · 4 links · telefoon · CTA. Drawer onder 1024px.">
+    {{partial:header}}
+  </div>
+  <main id="main">
+    <div class="tz-hero-wrap-annot" data-annot="02 · Hero  →  Hero.svelte (Forest)&#10;Foto: pages.home.hero_image_id (Neon Storage) · overlay&#10;Google-score live · H1 · 2 CTA's · offertekaart · 3 USP's">
+      {{partial:hero}}
+    </div>
+    <div data-annot="03 · Waarom TuinZorg DP  →  AboutSplit.svelte&#10;2 foto's (3:4 + 4:5) · 4 voordelen uit pages.home.perks">
+      {{partial:about}}
+    </div>
+    <div data-annot="04 · Diensten  →  ServiceGrid.svelte + ServiceCard.svelte&#10;SELECT * FROM services WHERE published ORDER BY sort&#10;1 featured (16:9) + 6 kaarten (4:3) · 4 / 2 / 1 kolommen">
+      {{partial:services}}
+    </div>
+    <div data-annot="05 · Realisaties  →  ProjectGallery.svelte&#10;project_photos JOIN projects · masonry 4 / 3 / 2 kolommen&#10;Filter per dienst · lightbox · ratio uit width/height">
+      {{partial:gallery}}
+    </div>
+    <section class="tz-section" style="padding-top: 0" data-annot="06 · CTA-band  →  CTABand.svelte (Forest kaart)">
+      <div class="tz-container">{{partial:cta}}</div>
+    </section>
+    <div data-annot="07 · Werkwijze  →  ProcessSteps.svelte (Forest)&#10;4 vaste stappen · 4 / 2 / 1 kolommen">
+      {{partial:process}}
+    </div>
+    <div data-annot="08 · Reviews + social  →  GoogleReviews.svelte + SocialFeed.svelte (Sand)&#10;reviews_cache (Places API, nachtelijk) · social_posts (Graph API)">
+      {{partial:reviews}}
+    </div>
+    <div data-annot="09 · FAQ  →  Accordion.svelte&#10;faqs-tabel · FAQPage schema voor lokale SEO">
+      {{partial:faq}}
+    </div>
+    <div data-annot="10 · Contact / offerte  →  ContactSection.svelte + QuoteForm.svelte&#10;POST /offerte → leads-tabel · foto's naar Neon Storage&#10;Tabs: Offerte aanvragen · Algemene vraag">
+      {{partial:contact}}
+    </div>
+  </main>
+  <div data-annot="11 · Footer (lokale SEO)  →  Footer.svelte (Forest)&#10;NAP uit settings · werkgebied uit service_areas · Maps-embed na klik&#10;LocalBusiness JSON-LD in <head>">
+    {{partial:footer}}
+  </div>
+  <button class="wf-toggle" type="button" aria-pressed="false" onclick="var on=document.body.classList.toggle('wf-on');this.setAttribute('aria-pressed',on);this.lastChild.textContent=on?' Verberg annotaties':' Toon annotaties'">{{icon:layers}}<span> Toon annotaties</span></button>
+  <script src="js/tz.js"></script>
+</body>
+</html>

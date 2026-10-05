@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="nl" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TuinZorg DP Design System</title>
+<link rel="icon" href="assets/logo/tz-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/tz.css">
+<link rel="stylesheet" href="css/sg.css">
+<style>
+  /* Style guide page chrome. Built from the same tokens as the components. */
+  .sg-top { position: sticky; top: 0; z-index: 40; background: var(--surface); border-bottom: 1px solid var(--line); }
+  .sg-top__in { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); height: 64px; }
+  .sg-top__brand { display: flex; align-items: center; gap: var(--space-sm); }
+  .tz .sg-top__brand { color: var(--heading); text-decoration: none; }
+  .sg-top__brand img { height: 36px; width: auto; }
+  .sg-top__brand span { font: 700 13px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); padding-left: var(--space-sm); border-left: 1px solid var(--line); }
+  .sg-top__links { display: flex; gap: var(--space-xs); }
+  .sg-cover-wrap { padding: var(--space-sm) var(--space-sm) 0; }
+  .sg-cover { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--radius-xl); padding-block: var(--space-4xl) var(--space-2xl); }
+  .sg-cover > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+  .sg-cover::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--overlay); }
+  .sg-cover__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-2xl); align-items: end; }
+  .sg-cover__copy { display: grid; gap: var(--space-lg); justify-items: start; }
+  .sg-cover__copy .t-display { color: var(--white); }
+  .sg-cover__copy .t-lead { color: var(--mist-200); max-width: 46ch; }
+  .sg-cover__themes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
+  .sg-cover__theme { display: grid; gap: var(--space-xs); align-content: end; min-height: 160px; padding: var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--line); }
+  .sg-cover__theme b { font: 800 26px/1 var(--font-display); font-variation-settings: "wdth" 92; color: var(--heading); }
+  .sg-cover__theme span { font-size: 13px; color: var(--ink-soft); line-height: 1.4; }
+  .sg-cover__theme i { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); }
+
+  .sg-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-2xl); align-items: start; padding-block: var(--space-3xl); }
+  .sg-nav { position: sticky; top: 88px; max-height: calc(100vh - 104px); overflow-y: auto; }
+  .sg-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; }
+  .sg-nav a { display: block; padding: 6px 12px; font-size: 14px; border-radius: var(--radius-full); }
+  .tz .sg-nav a { color: var(--ink-soft); text-decoration: none; }
+  .tz .sg-nav a:hover { color: var(--heading); background: var(--tint); }
+  .sg-nav__group { font: 700 11px/1.3 var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--highlight); padding: 16px 12px 6px; }
+  .sg-main { display: grid; gap: var(--space-5xl); min-width: 0; }
+  .sg-block { display: grid; gap: var(--space-lg); scroll-margin-top: 84px; }
+  .sg-block > header { display: grid; gap: var(--space-sm); max-width: 72ch; justify-items: start; }
+  .sg-block > header p { color: var(--ink-soft); }
+
+  .sg-doc { display: grid; gap: var(--space-sm); max-width: 80ch; }
+  .sg-doc h4, .sg-comp__doc h4 { font: 700 22px/1.25 var(--font-display); font-variation-settings: "wdth" 92; color: var(--heading); margin: var(--space-lg) 0 0; }
+  .sg-doc h5 { font: 700 16px/1.4 var(--font-sans); margin: var(--space-md) 0 0; }
+  .sg-doc p, .sg-comp__doc p { color: var(--ink-soft); }
+  .sg-doc ul, .sg-comp__doc ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--ink-soft); }
+  .sg-doc li::marker, .sg-comp__doc li::marker { color: var(--highlight); }
+  .tz code { font: 500 0.86em/1 ui-monospace, Menlo, Consolas, monospace; background: var(--surface-sunken); color: var(--heading); padding: 0.2em 0.45em; border-radius: var(--radius-xs); }
+  .sg-doc strong, .sg-comp__doc strong { color: var(--ink); font-weight: 650; }
+  .sg-code { margin: 0; max-height: 440px; overflow: auto; padding: var(--space-md); background: var(--forest-950); color: var(--sage-100); border-radius: var(--radius-md); font: 400 12.5px/1.55 ui-monospace, Menlo, Consolas, monospace; }
+  .sg-code code { background: none; color: inherit; padding: 0; font: inherit; }
+  .sg-hint { font-size: 13px; color: var(--ink-faint); }
+
+  .sg-table { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+  .sg-table table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; }
+  .sg-table th { text-align: left; font: 700 11px/1.3 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); padding: 12px 14px; border-bottom: 1px solid var(--line); background: var(--surface-sunken); }
+  .sg-table td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-soft); }
+  .sg-table tr:last-child td { border-bottom: 0; }
+  .sg-table td:first-child { color: var(--ink); font-weight: 650; }
+  .sg-usage { font-size: 13px; color: var(--ink-soft); line-height: 1.45; margin-top: 4px; font-weight: 400; }
+
+  .sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--space-md); }
+  .sg-swatch { display: grid; gap: var(--space-xs); align-content: start; }
+  .sg-swatch__chip { position: relative; height: 112px; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 10px 12px; border-radius: var(--radius-md); font: 600 12px/1 ui-monospace, Menlo, monospace; box-shadow: inset 0 0 0 1px rgba(14, 33, 17, 0.1); }
+  .sg-brand { position: absolute; top: 10px; left: 10px; padding: 4px 8px; border-radius: 999px; background: rgba(255,255,255,0.9); color: #0e2111; font: 700 10px/1 var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; }
+  .sg-swatch figcaption { display: grid; gap: 4px; font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
+  .sg-swatch figcaption strong { font: 650 14px/1.2 var(--font-sans); color: var(--ink); }
+  .sg-semantic td { min-width: 110px; }
+  .sg-semantic td:first-child { min-width: 300px; }
+  .sg-chipcell { padding: 8px; border-radius: 8px; }
+  .sg-chip { display: block; height: 36px; border-radius: 8px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 20%, transparent); }
+
+  .sg-type { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: var(--space-lg); padding-block: var(--space-lg); border-top: 1px solid var(--line); align-items: baseline; }
+  .sg-type__meta { display: grid; gap: 4px; font-size: 13px; line-height: 1.4; color: var(--ink-soft); justify-items: start; }
+  .sg-type__sample { min-width: 0; overflow-wrap: anywhere; }
+  .sg-pairing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md); }
+  .sg-pairing > div { display: grid; gap: var(--space-xs); padding: var(--space-xl); border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); }
+  .sg-pairing .big { font-size: 64px; line-height: 1; color: var(--heading); }
+
+  .sg-space { display: grid; grid-template-columns: 96px 140px 56px minmax(0, 1fr); gap: var(--space-md); align-items: center; padding-block: 10px; border-top: 1px solid var(--line); font-size: 14px; }
+  .sg-space__bar { display: block; height: 12px; border-radius: 6px; background: var(--highlight); }
+  .sg-shapes { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: var(--space-lg); }
+  .sg-radius, .sg-shadow { display: grid; gap: var(--space-sm); font-size: 14px; align-content: start; }
+  .sg-radius > div { height: 110px; background: var(--forest-200); }
+  .sg-shadow > div { height: 110px; border-radius: var(--radius-md); background: var(--white); }
+  .sg-radius figcaption, .sg-shadow figcaption { display: grid; gap: 4px; justify-items: start; }
+
+  .sg-logos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--space-md); }
+  .sg-logos figure { display: grid; gap: var(--space-sm); align-content: start; }
+  .sg-logo { height: 180px; display: grid; place-items: center; padding: var(--space-xl); border-radius: var(--radius-md); box-shadow: inset 0 0 0 1px rgba(14, 33, 17, 0.1); }
+  .sg-logo img { max-height: 72px; width: auto; }
+  .sg-logos figcaption { display: grid; gap: 4px; font-size: 13px; color: var(--ink-soft); line-height: 1.45; justify-items: start; }
+
+  .sg-photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-md); }
+  .sg-photo { display: grid; gap: var(--space-xs); align-content: start; }
+  .sg-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: var(--radius-sm); }
+  .sg-photo figcaption { display: grid; gap: 2px; font-size: 12px; line-height: 1.4; color: var(--ink-soft); }
+  .sg-photo figcaption strong { font: 600 12px/1.4 ui-monospace, Menlo, monospace; color: var(--ink); overflow-wrap: anywhere; }
+  .sg-photo .t-label { font-size: 10px; color: var(--highlight); }
+
+  .sg-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: var(--space-xs); }
+  .sg-icons figure { display: grid; justify-items: center; gap: var(--space-sm); padding: var(--space-lg) var(--space-xs); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+  .sg-icons .tz-icon { width: 24px; height: 24px; color: var(--heading); }
+  .sg-icons figcaption { font: 500 11px/1.3 ui-monospace, Menlo, monospace; color: var(--ink-soft); text-align: center; overflow-wrap: anywhere; }
+
+  .sg-comps { display: grid; gap: var(--space-5xl); }
+  .sg-comp { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); scroll-margin-top: 84px; }
+  .sg-comp__head { display: grid; gap: var(--space-xs); }
+  .sg-comp__head .t-label { color: var(--highlight); }
+  .sg-sub { color: var(--ink-soft); }
+  .sg-comp__doc { display: grid; gap: var(--space-xs); max-width: 80ch; }
+  .sg-comp__doc h4 { font-size: 18px; margin-top: var(--space-sm); }
+  .sg-demo { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--bg); }
+  .sg-demo .tz-header { position: relative; }
+  @media (max-width: 1000px) { .sg-layout { grid-template-columns: minmax(0, 1fr); } .sg-nav { display: none; } .sg-cover__grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) { .sg-type, .sg-space { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); } .sg-cover__themes, .sg-pairing { grid-template-columns: minmax(0, 1fr); } .sg-cover__theme { min-height: 0; } .sg-top__links .tz-btn--outline { display: none; } }
+</style>
+</head>
+<body class="tz">
+  <div class="sg-top">
+    <div class="tz-container sg-top__in">
+      <a class="sg-top__brand" href="#top"><img src="{{logo:tz-logo.svg}}" alt="TuinZorg DP"><span>Design system</span></a>
+      <div class="sg-top__links"><a class="tz-btn tz-btn--outline tz-btn--sm" href="#guide">Versie 1 · oktober 2026</a><a class="tz-btn tz-btn--sm" href="home-page.html">Home page <span class="tz-btn__chip">{{icon:arrow-right}}</span></a></div>
+    </div>
+  </div>
+
+  <div class="sg-cover-wrap" id="top">
+    <section class="sg-cover" data-theme="forest">
+      <img src="{{img:photos/client/gazon-gestreept-haag.jpg}}" alt="">
+      <div class="tz-container sg-cover__grid">
+        <div class="sg-cover__copy">
+          <span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Design system v1 · website en CMS</span>
+          <h1 class="t-display">TuinZorg <span class="tz-accent-word">DP</span></h1>
+          <p class="t-lead">One system for the new tuinzorgdp.be in SvelteKit: sage grounds, forest headlines, one fresh leaf green, earth for warmth, and the company's own gardens as the imagery. Professional, reliable, friendly and hands-on.</p>
+        </div>
+        <div class="sg-cover__themes">
+          <div class="sg-cover__theme" data-theme="light"><i></i><b>Light</b><span>The page. Sage-50 ground, white cards, leaf-700 buttons.</span></div>
+          <div class="sg-cover__theme" data-theme="forest"><i></i><b>Forest</b><span>Hero, werkwijze, CTA band, footer, CMS dark mode.</span></div>
+          <div class="sg-cover__theme" data-theme="sand"><i></i><b>Sand</b><span>Reviews and social. Warm soil, earth-brown marks.</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="tz-container sg-layout">
+    <nav class="sg-nav" aria-label="Style guide">
+      <ul>
+        <li class="sg-nav__group">Foundations</li>
+        <li><a href="#guide">Brand and principles</a></li>
+        {{NAV_GUIDE}}
+        <li><a href="#logo">Logo</a></li>
+        <li><a href="#colour">Colour tokens</a></li>
+        <li><a href="#type">Type specimens</a></li>
+        <li><a href="#space">Space, shape, depth</a></li>
+        <li><a href="#imagery">Imagery</a></li>
+        <li><a href="#icons">Icons</a></li>
+        {{NAV_COMPONENTS}}
+      </ul>
+    </nav>
+
+    <main class="sg-main">
+      <section class="sg-block" id="guide">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Brand</span><h2 class="t-h1">Brand and principles</h2></header>
+        <div class="sg-doc">{{GUIDE}}</div>
+      </section>
+
+      {{SECTIONS}}
+
+      <section class="sg-block" id="logo">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Logo</span><h2 class="t-h1">Logo</h2><p>The hand-and-sprout mark from the current logo, redrawn as a clean line drawing, with the words in Bricolage Grotesque. Interim lockup until the original vector is available.</p></header>
+        {{LOGOS}}
+      </section>
+
+      <section class="sg-block" id="colour">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Colour</span><h2 class="t-h1">Colour tokens</h2><p>The fixed palette, then every semantic token in each theme.</p></header>
+        {{SWATCHES}}
+        {{SEMANTIC}}
+      </section>
+
+      <section class="sg-block" id="type">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Typography</span><h2 class="t-h1">Type specimens</h2><p>Bricolage Grotesque (variable weight, width and optical size) for headings, Figtree (variable weight) for everything else. Self-hosted, SIL OFL. Desktop sizes shown.</p></header>
+        <div class="sg-pairing">
+          <div><span class="t-label" style="color: var(--highlight)">Display · Bricolage Grotesque</span><span class="big" style="font: 800 64px/1 var(--font-display); font-variation-settings: 'wdth' 92; letter-spacing: -0.03em">Aa Gg 82</span><span class="t-small" style="color: var(--ink-soft)">Sturdy, warm, a little rugged. Weights 650–800, 92% width.</span></div>
+          <div><span class="t-label" style="color: var(--highlight)">Text · Figtree</span><span class="big" style="font: 500 64px/1 var(--font-sans); letter-spacing: -0.02em">Aa Gg 82</span><span class="t-small" style="color: var(--ink-soft)">Open and friendly, very legible on phones. Weights 400–700.</span></div>
+        </div>
+        <div>{{TYPE}}</div>
+      </section>
+
+      <section class="sg-block" id="space">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Space, shape, depth</span><h2 class="t-h1">Space, shape, depth</h2></header>
+        <div>{{SPACING}}</div>
+        <div class="sg-shapes">{{RADIUS}}</div>
+        <div class="sg-shapes">{{SHADOW}}</div>
+        {{LAYOUT}}
+      </section>
+
+      <section class="sg-block" id="imagery">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Imagery</span><h2 class="t-h1">Imagery</h2><p>45 photos of the company's own jobs, named by what they show, with Dutch alt text in credits.json. Resized to 1200px for this system; the originals go to Neon Object Storage.</p></header>
+        {{PHOTOS}}
+      </section>
+
+      <section class="sg-block" id="icons">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Icons</span><h2 class="t-h1">Icons</h2><p>Lucide (ISC), stroke 2, round caps, inlined so they take the text colour; mower and grass drawn on the same grid. Brand marks from Simple Icons (CC0).</p></header>
+        {{ICONS}}
+      </section>
+
+      <section class="sg-block" id="components">
+        <header><span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>Components</span><h2 class="t-h1">Components</h2><p>Twenty components for the website, each live with its rules and Svelte props. Resize the window to see the phone layouts.</p></header>
+        <div class="sg-comps">{{COMPONENTS}}</div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="tz-footer" data-theme="forest" style="padding-block: 32px">
+    <div class="tz-container tz-footer__bottom" style="border-top: 0; padding-block: 0">
+      <span>TuinZorg DP design system v1</span>
+      <span>Bricolage Grotesque and Figtree (SIL OFL) · Lucide (ISC) · Simple Icons (CC0) · Photos: TuinZorg DP</span>
+    </div>
+  </footer>
+<script src="js/tz.js"></script>
+</body>
+</html>

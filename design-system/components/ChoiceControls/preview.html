@@ -1,0 +1,14 @@
+<!-- @dsCard group="Forms" height=560 subtitle="Checkbox and radio states, service tiles (two checked) and the segmented switch" -->
+<div class="tz sg-pad-lg" data-theme="light">
+  <div class="sg-grid-3">
+    <div class="tz-checks"><label class="tz-check"><input type="checkbox" checked> Maaien</label><label class="tz-check"><input type="checkbox"> Snoeien</label><label class="tz-check"><input type="checkbox" disabled> Niet beschikbaar</label></div>
+    <div class="tz-checks"><label class="tz-check"><input type="radio" name="sgr" checked> Particulier</label><label class="tz-check"><input type="radio" name="sgr"> Bedrijf</label></div>
+    <div><div class="tz-segment" data-tz-tabs role="tablist" aria-label="Voorbeeld"><button type="button" role="tab" aria-selected="true" aria-controls="sg-p1">Offerte aanvragen</button><button type="button" role="tab" aria-selected="false" aria-controls="sg-p2" tabindex="-1">Algemene vraag</button></div><p id="sg-p1" role="tabpanel" class="t-small" style="margin-top: 12px">Paneel 1</p><p id="sg-p2" role="tabpanel" class="t-small" hidden style="margin-top: 12px">Paneel 2</p></div>
+  </div>
+  <div class="tz-tiles tz-tiles--4" style="margin-top: 24px">
+    <label class="tz-tile"><input type="checkbox" checked>{{icon:mower}}<span class="tz-tile__name">Maaien</span><span class="tz-tile__box"></span></label>
+    <label class="tz-tile"><input type="checkbox">{{icon:grass}}<span class="tz-tile__name">Gazononderhoud</span><span class="tz-tile__box"></span></label>
+    <label class="tz-tile"><input type="checkbox">{{icon:shovel}}<span class="tz-tile__name">Onkruid</span><span class="tz-tile__box"></span></label>
+    <label class="tz-tile"><input type="checkbox" checked>{{icon:scissors}}<span class="tz-tile__name">Snoeien</span><span class="tz-tile__box"></span></label>
+  </div>
+</div>

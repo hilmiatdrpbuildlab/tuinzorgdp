@@ -1,0 +1,74 @@
+<section class="tz-section" id="contact" aria-labelledby="contact-title">
+  <div class="tz-container tz-contact">
+    <div class="tz-contact__aside">
+      <span class="tz-eyebrow tz-eyebrow--pill" style="justify-self: start"><span class="tz-leaf"></span>Contact</span>
+      <h2 class="t-h1" id="contact-title">Vraag uw <span class="tz-accent-word">gratis</span> offerte aan</h2>
+      <p class="t-lead">Vul het formulier in, bel of stuur een e-mail. Wij nemen zo snel mogelijk contact met u op en bespreken wat uw tuin nodig heeft.</p>
+      <div class="tz-contact__lines">
+        <a class="tz-contact__line" href="tel:+32469413730"><span class="tz-icon-chip">{{icon:phone}}</span><span><small>Bel ons</small><strong>+32 469 41 37 30</strong></span></a>
+        <a class="tz-contact__line" href="mailto:info@tuinzorgdp.be"><span class="tz-icon-chip">{{icon:mail}}</span><span><small>E-mail</small><strong>info@tuinzorgdp.be</strong></span></a>
+        <a class="tz-contact__line" href="https://wa.me/32469413730"><span class="tz-icon-chip">{{icon:whatsapp}}</span><span><small>WhatsApp</small><strong>Stuur een foto van uw tuin</strong></span></a>
+        <div class="tz-contact__line"><span class="tz-icon-chip">{{icon:map-pin}}</span><span><small>Werkgebied</small><strong><span class="tz-todo">[Gemeente]</span> en omstreken</strong></span></div>
+      </div>
+      <div class="tz-media tz-media--16x9 tz-media--lg"><img src="{{img:photos/client/bestelwagen-aanhanger.jpg}}" alt="Witte bestelwagen van TuinZorg DP met aanhangwagen voor een woning" loading="lazy" style="object-position: 50% 45%"></div>
+    </div>
+    <div class="tz-contact__card" id="offerte">
+      <div class="tz-segment" data-tz-tabs role="tablist" aria-label="Soort aanvraag">
+        <button type="button" role="tab" id="tab-offerte" aria-controls="panel-offerte" aria-selected="true">Offerte aanvragen</button>
+        <button type="button" role="tab" id="tab-vraag" aria-controls="panel-vraag" aria-selected="false" tabindex="-1">Algemene vraag</button>
+      </div>
+      <div role="tabpanel" id="panel-offerte" aria-labelledby="tab-offerte">
+        <form class="tz-form" data-tz-form action="/offerte" method="post">
+          <div class="tz-field" data-tz-group>
+            <fieldset class="tz-form__group"><legend>Waarmee kunnen wij u helpen? <span class="tz-label__req" aria-hidden="true">*</span></legend>
+              <div class="tz-tiles tz-tiles--4"><label class="tz-tile"><input type="checkbox" name="diensten" value="maaien">{{icon:mower}}<span class="tz-tile__name">Maaien</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="gazononderhoud">{{icon:grass}}<span class="tz-tile__name">Gazononderhoud</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="onkruid">{{icon:shovel}}<span class="tz-tile__name">Onkruid</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="snoeien">{{icon:scissors}}<span class="tz-tile__name">Snoeien</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="lamellen">{{icon:fence}}<span class="tz-tile__name">Lamellen</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="afboording">{{icon:ruler}}<span class="tz-tile__name">Afboording</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="materialen">{{icon:layers}}<span class="tz-tile__name">Materialen</span><span class="tz-tile__box"></span></label><label class="tz-tile"><input type="checkbox" name="diensten" value="anders">{{icon:sprout}}<span class="tz-tile__name">Anders</span><span class="tz-tile__box"></span></label></div>
+            </fieldset>
+            <span class="tz-msg tz-msg--error">{{icon:circle-x}} Kies minstens één dienst.</span>
+          </div>
+          <div class="tz-form__row">
+            <div class="tz-field"><label class="tz-label" for="q-voornaam">Voornaam <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-voornaam" name="voornaam" autocomplete="given-name" required aria-describedby="q-voornaam-err"><span class="tz-msg tz-msg--error" id="q-voornaam-err">{{icon:circle-x}} Vul uw voornaam in.</span></div>
+            <div class="tz-field"><label class="tz-label" for="q-naam">Achternaam <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-naam" name="achternaam" autocomplete="family-name" required aria-describedby="q-naam-err"><span class="tz-msg tz-msg--error" id="q-naam-err">{{icon:circle-x}} Vul uw achternaam in.</span></div>
+          </div>
+          <div class="tz-form__row">
+            <div class="tz-field"><label class="tz-label" for="q-tel">Telefoon <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-tel" name="telefoon" type="tel" autocomplete="tel" inputmode="tel" placeholder="0470 12 34 56" required aria-describedby="q-tel-err"><span class="tz-msg tz-msg--error" id="q-tel-err">{{icon:circle-x}} Vul een telefoonnummer in waarop wij u kunnen bereiken.</span></div>
+            <div class="tz-field"><label class="tz-label" for="q-mail">E-mail <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-mail" name="email" type="email" autocomplete="email" placeholder="naam@voorbeeld.be" required aria-describedby="q-mail-err"><span class="tz-msg tz-msg--error" id="q-mail-err">{{icon:circle-x}} Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.be.</span></div>
+          </div>
+          <div class="tz-field"><label class="tz-label" for="q-adres">Adres van de tuin <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-adres" name="adres" autocomplete="street-address" placeholder="Straat en huisnummer" required aria-describedby="q-adres-err"><span class="tz-msg tz-msg--error" id="q-adres-err">{{icon:circle-x}} Vul het adres van de tuin in.</span></div>
+          <div class="tz-form__row tz-form__row--3">
+            <div class="tz-field"><label class="tz-label" for="q-pc">Postcode <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-pc" name="postcode" autocomplete="postal-code" inputmode="numeric" pattern="[1-9][0-9]{3}" maxlength="4" placeholder="2000" required aria-describedby="q-pc-err"><span class="tz-msg tz-msg--error" id="q-pc-err">{{icon:circle-x}} Een Belgische postcode heeft 4 cijfers.</span></div>
+            <div class="tz-field"><label class="tz-label" for="q-gem">Gemeente <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="q-gem" name="gemeente" autocomplete="address-level2" required aria-describedby="q-gem-err"><span class="tz-msg tz-msg--error" id="q-gem-err">{{icon:circle-x}} Vul uw gemeente in.</span></div>
+          </div>
+          <div class="tz-form__row">
+            <div class="tz-field"><label class="tz-label" for="q-wanneer">Gewenste timing <span class="tz-label__opt">(optioneel)</span></label><div class="tz-select-wrap"><select class="tz-select" id="q-wanneer" name="timing"><option value="">Maak een keuze</option><option>Zo snel mogelijk</option><option>Binnen de maand</option><option>Periodiek onderhoud</option><option>Nog niet zeker</option></select>{{icon:chevron-down}}</div></div>
+            <div class="tz-field"><label class="tz-label" for="q-opp">Oppervlakte tuin <span class="tz-label__opt">(optioneel)</span></label><div class="tz-select-wrap"><select class="tz-select" id="q-opp" name="oppervlakte"><option value="">Ongeveer</option><option>Kleiner dan 100 m²</option><option>100 tot 300 m²</option><option>300 tot 1.000 m²</option><option>Groter dan 1.000 m²</option></select>{{icon:chevron-down}}</div></div>
+          </div>
+          <div class="tz-field"><span class="tz-label" id="q-foto-l">Foto's van uw tuin <span class="tz-label__opt">(optioneel)</span></span><label class="tz-drop">{{icon:upload}}<span><strong>Kies foto's</strong> of sleep ze hierheen</span><span class="tz-hint">JPG of PNG, maximaal 5 foto's van 10 MB</span><span class="tz-hint" data-tz-files></span><input type="file" name="fotos" accept="image/jpeg,image/png" multiple aria-labelledby="q-foto-l"></label></div>
+          <div class="tz-field"><label class="tz-label" for="q-msg">Vragen en opmerkingen <span class="tz-label__req" aria-hidden="true">*</span></label><textarea class="tz-textarea" id="q-msg" name="bericht" maxlength="600" data-tz-count="q-msg-count" placeholder="Beschrijf kort wat u wilt laten doen" required aria-describedby="q-msg-err"></textarea><span class="tz-count" id="q-msg-count">0 / 600</span><span class="tz-msg tz-msg--error" id="q-msg-err">{{icon:circle-x}} Beschrijf kort wat u wilt laten doen.</span></div>
+          <div class="tz-field"><label class="tz-check"><input type="checkbox" name="privacy" required> <span>Ik ga akkoord dat TuinZorg DP mijn gegevens gebruikt om mijn aanvraag te beantwoorden. <a href="/privacy">Privacybeleid</a></span></label><span class="tz-msg tz-msg--error">{{icon:circle-x}} Vink dit aan zodat wij u mogen contacteren.</span></div>
+          <div class="tz-form__foot">
+            <button class="tz-btn tz-btn--lg" type="submit">{{icon:loader-circle|tz-spin}} <span class="tz-btn__label">Offerte aanvragen</span> <span class="tz-btn__chip">{{icon:send}}</span></button>
+            <p class="tz-form__legal">Gratis en zonder verplichting. Wij antwoorden zo snel mogelijk.</p>
+          </div>
+        </form>
+        <div class="tz-contact__success" data-tz-success hidden tabindex="-1">
+          <span class="tz-icon-chip tz-icon-chip--solid">{{icon:circle-check}}</span>
+          <h3 class="t-h3">Bedankt, uw aanvraag is verstuurd</h3>
+          <p>Wij bekijken uw aanvraag en nemen zo snel mogelijk contact met u op. Een kopie staat in uw mailbox.</p>
+          <a class="tz-textlink" href="#realisaties">Bekijk intussen ons werk {{icon:arrow-right}}</a>
+        </div>
+      </div>
+      <div role="tabpanel" id="panel-vraag" aria-labelledby="tab-vraag" hidden>
+        <form class="tz-form" data-tz-form action="/contact" method="post">
+          <div class="tz-form__row">
+            <div class="tz-field"><label class="tz-label" for="c-naam">Naam <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="c-naam" name="naam" autocomplete="name" required><span class="tz-msg tz-msg--error">{{icon:circle-x}} Vul uw naam in.</span></div>
+            <div class="tz-field"><label class="tz-label" for="c-mail">E-mail <span class="tz-label__req" aria-hidden="true">*</span></label><input class="tz-input" id="c-mail" name="email" type="email" autocomplete="email" required><span class="tz-msg tz-msg--error">{{icon:circle-x}} Vul een geldig e-mailadres in.</span></div>
+          </div>
+          <div class="tz-field"><label class="tz-label" for="c-tel">Telefoon <span class="tz-label__opt">(optioneel)</span></label><input class="tz-input" id="c-tel" name="telefoon" type="tel" autocomplete="tel"></div>
+          <div class="tz-field"><label class="tz-label" for="c-msg">Uw vraag <span class="tz-label__req" aria-hidden="true">*</span></label><textarea class="tz-textarea" id="c-msg" name="bericht" maxlength="600" required></textarea><span class="tz-msg tz-msg--error">{{icon:circle-x}} Schrijf uw vraag.</span></div>
+          <div class="tz-form__foot"><button class="tz-btn" type="submit">{{icon:loader-circle|tz-spin}} <span class="tz-btn__label">Bericht versturen</span></button><p class="tz-form__legal">Wij antwoorden zo snel mogelijk.</p></div>
+        </form>
+        <div class="tz-contact__success" data-tz-success hidden tabindex="-1"><span class="tz-icon-chip tz-icon-chip--solid">{{icon:circle-check}}</span><h3 class="t-h3">Bedankt voor uw bericht</h3><p>Wij antwoorden zo snel mogelijk.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
