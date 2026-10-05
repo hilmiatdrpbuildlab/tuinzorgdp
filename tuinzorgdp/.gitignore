@@ -1,0 +1,32 @@
+node_modules
+
+# Output
+.output
+.wrangler
+/.svelte-kit
+/build
+/test-results
+/playwright-report
+
+# Generated at build time (scripts/build-images.ts, scripts/write-build-files.ts)
+/static/media/
+/static/build-info.json
+/_redirects
+/src/lib/server/seed.generated.json
+
+# Local data
+/.local/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+.dev.vars
+!.env.example
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

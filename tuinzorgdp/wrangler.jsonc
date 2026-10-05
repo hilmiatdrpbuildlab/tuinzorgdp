@@ -1,0 +1,32 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "tuinzorgdp-website",
+	// Cloudflare rate-limit bindings only allow 10 s or 60 s periods: this one is the burst guard, the 10-minute window lives in Postgres (src/lib/server/ratelimit.ts).
+	// scripts/wrap-worker.ts wraps the adapter's worker to add the cron handler (see docs/cms-plan/07-build-and-deploy.md).
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_als", "nodejs_compat"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"workers_dev": true,
+	"preview_urls": true,
+	"observability": { "enabled": true },
+	"triggers": {
+		"crons": ["0 3 * * *", "30 4 * * *"]
+	},
+	"ratelimits": [
+		{
+			"name": "SUBMIT_LIMITER",
+			"namespace_id": "1001",
+			"simple": { "limit": 5, "period": 60 }
+		}
+	],
+	"vars": {
+		"STORAGE_BUCKET": "media",
+		"MAIL_FROM": "noreply@tuinzorgdp.be",
+		"MAIL_FROM_NAME": "TuinZorg DP",
+		"MAIL_REPLY_TO": "info@tuinzorgdp.be"
+	}
+}

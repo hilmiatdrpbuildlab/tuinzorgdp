@@ -1,0 +1,150 @@
+/*
+ * App-level additions on top of the design system (src/lib/styles is a copy and never edited here).
+ * Only layout helpers and the few pieces the design system leaves to the app: article prose,
+ * the honeypot, the map frame. Every value is a design-system token.
+ */
+
+.app-relative {
+	position: relative;
+}
+.app-self-start {
+	justify-self: start;
+}
+.app-gap-xs {
+	gap: var(--space-xs);
+}
+.app-ink-soft {
+	color: var(--ink-soft);
+}
+.app-strong {
+	font-weight: 700;
+}
+.app-eyebrow-lime {
+	color: var(--lime-300);
+}
+.app-star-off {
+	opacity: 0.3;
+}
+.app-display-split {
+	font-size: clamp(36px, 5vw, 64px);
+	hyphens: auto;
+	overflow-wrap: break-word;
+}
+
+/* Honeypot: off screen for people, still in the form for bots. */
+.app-hp {
+	position: absolute;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.app-map-frame {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.app-turnstile:empty {
+	display: none;
+}
+
+/* Article layout: privacy page, service and project bodies, werkgebied intros. */
+.app-prose {
+	max-width: var(--measure);
+	color: var(--ink);
+}
+.app-prose > * + * {
+	margin-top: var(--space-md);
+}
+.app-prose h2 {
+	font-family: var(--font-display);
+	color: var(--heading);
+	font-size: 1.5rem;
+	line-height: 1.2;
+	margin-top: var(--space-xl);
+}
+.app-prose h3 {
+	color: var(--heading);
+	font-size: 1.2rem;
+	margin-top: var(--space-lg);
+}
+.app-prose ul,
+.app-prose ol {
+	padding-left: 1.25em;
+}
+.app-prose li + li {
+	margin-top: var(--space-2xs);
+}
+.app-prose a {
+	color: var(--link);
+	text-decoration: underline;
+}
+.app-prose em {
+	color: var(--ink-soft);
+}
+
+.app-split {
+	display: grid;
+	gap: var(--space-2xl);
+}
+@media (min-width: 1024px) {
+	.app-split {
+		grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+		align-items: start;
+	}
+}
+
+.app-checklist {
+	display: grid;
+	gap: var(--space-sm);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.app-checklist li {
+	display: flex;
+	gap: var(--space-xs);
+	align-items: flex-start;
+}
+.app-checklist .tz-icon {
+	color: var(--highlight);
+	margin-top: 2px;
+}
+
+.app-pair {
+	display: grid;
+	gap: var(--space-md);
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+.app-pair figure {
+	margin: 0;
+	display: grid;
+	gap: var(--space-xs);
+}
+.app-pair figcaption {
+	color: var(--ink-faint);
+	font-size: 0.875rem;
+}
+
+.app-cards {
+	display: grid;
+	gap: var(--space-md);
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+}
+.app-cards a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.app-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
+}
+.app-center {
+	text-align: center;
+	justify-items: center;
+}
