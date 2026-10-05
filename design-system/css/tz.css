@@ -310,7 +310,7 @@ body { margin: 0; }
 .tz-hero__media > img { object-position: 50% 60%; }
 .tz-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--overlay); }
 .tz-hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 40%; z-index: -1; background: linear-gradient(180deg, transparent, rgba(14, 33, 17, 0.7)); }
-.tz-hero__grid { display: grid; gap: var(--space-2xl); align-items: end; }
+.tz-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-2xl); align-items: end; }
 .tz-hero__copy { display: grid; gap: var(--space-lg); justify-items: start; max-width: 720px; }
 .tz-hero__copy .t-display { color: var(--white); }
 .tz-hero__copy .t-lead { color: var(--mist-200); max-width: 50ch; }
@@ -367,7 +367,7 @@ body { margin: 0; }
 .tz-service__title a { color: inherit; text-decoration: none; }
 .tz .tz-service__title a { color: inherit; text-decoration: none; }
 .tz-service__title a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
-.tz-service__sub { font: 600 14px/1.4 var(--font-sans); color: var(--highlight); }
+.tz-service__sub { font: 600 14px/1.4 var(--font-sans); color: var(--accent-word); }
 .tz-service__summary { font-size: 15px; line-height: 1.55; color: var(--ink-soft); }
 .tz-service__list { list-style: none; padding: 0; display: grid; gap: 6px; font-size: 15px; line-height: 1.45; }
 .tz-service__list li { display: flex; gap: var(--space-xs); }
@@ -415,7 +415,8 @@ body { margin: 0; }
   background: var(--scrim); color: var(--white);
   font: 650 15px/1.3 var(--font-sans);
 }
-.tz-shot__cap .tz-icon-chip { width: 36px; height: 36px; background: rgba(255, 255, 255, 0.18); color: var(--white); backdrop-filter: blur(4px); }
+.tz-shot__cap > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.tz-shot__cap .tz-icon-chip { flex: none; width: 36px; height: 36px; background: rgba(255, 255, 255, 0.18); color: var(--white); backdrop-filter: blur(4px); }
 .tz-shot__cap .tz-icon-chip .tz-icon { width: 16px; height: 16px; }
 .tz-gallery__more { display: flex; justify-content: center; margin-top: var(--space-xl); }
 @media (min-width: 768px) { .tz-gallery { columns: 3; column-gap: var(--space-md); } .tz-shot { margin-bottom: var(--space-md); } }
@@ -621,12 +622,12 @@ body { margin: 0; }
 @media (min-width: 640px) { .tz-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .tz-tiles--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 /* Segmented switch between the two forms. */
-.tz-segment { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 4px; border-radius: var(--radius-full); background: var(--surface-sunken); }
-.tz-segment button { min-height: 44px; padding: 0 20px; border: 0; border-radius: var(--radius-full); background: transparent; color: var(--ink-soft); font: 650 15px/1 var(--font-sans); cursor: pointer; white-space: nowrap; }
+.tz-segment { display: inline-grid; max-width: 100%; grid-auto-flow: column; grid-auto-columns: 1fr; padding: 4px; border-radius: var(--radius-full); background: var(--surface-sunken); }
+.tz-segment button { min-width: 0; min-height: 44px; padding: 0 clamp(10px, 4vw, 20px); border: 0; border-radius: var(--radius-full); background: transparent; color: var(--ink-soft); font: 650 15px/1 var(--font-sans); cursor: pointer; white-space: nowrap; }
 .tz-segment button[aria-selected="true"] { background: var(--surface); color: var(--heading); box-shadow: var(--shadow-sm); }
 
 /* ---------- Contact section ---------- */
-.tz-contact { display: grid; gap: var(--space-xl); }
+.tz-contact { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
 .tz-contact__aside { display: grid; gap: var(--space-lg); align-content: start; }
 .tz-contact__lines { display: grid; gap: var(--space-sm); }
 .tz-contact__line { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-sm); border-radius: var(--radius-md); background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
@@ -699,9 +700,9 @@ a.tz-contact__line:hover { border-color: var(--line-strong); }
 
 /* About split: photo collage with mixed ratios + advantages. */
 .tz-about { display: grid; gap: var(--space-2xl); align-items: center; }
-.tz-about__photos { display: grid; grid-template-columns: 7fr 5fr; gap: var(--space-sm); align-items: end; }
+.tz-about__photos { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-sm); align-items: end; }
 .tz-about__photos .tz-media:nth-child(2) { margin-bottom: var(--space-2xl); }
-.tz-about__photos .tz-badge { position: absolute; left: var(--space-sm); bottom: var(--space-sm); z-index: 1; }
+.tz-about__photos .tz-badge { position: absolute; left: var(--space-sm); bottom: var(--space-sm); z-index: 1; max-width: calc(100% - 2 * var(--space-sm)); white-space: normal; height: auto; min-height: 28px; }
 .tz-about__copy { display: grid; gap: var(--space-lg); }
 .tz-perks { list-style: none; padding: 0; display: grid; gap: var(--space-md); }
 .tz-perk { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-sm); align-items: start; }

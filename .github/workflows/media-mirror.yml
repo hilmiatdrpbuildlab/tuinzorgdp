@@ -1,0 +1,27 @@
+name: Weekly media mirror
+
+on:
+  schedule:
+    - cron: '0 4 * * 0'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install rclone
+        run: curl -fsSL https://rclone.org/install.sh | sudo bash
+      - name: Sync originals/ from Neon Object Storage to R2 (request photos stay out)
+        env:
+          RCLONE_CONFIG_NEON_TYPE: s3
+          RCLONE_CONFIG_NEON_PROVIDER: Other
+          RCLONE_CONFIG_NEON_ENDPOINT: ${{ secrets.NEON_STORAGE_ENDPOINT }}
+          RCLONE_CONFIG_NEON_ACCESS_KEY_ID: ${{ secrets.NEON_STORAGE_READ_KEY_ID }}
+          RCLONE_CONFIG_NEON_SECRET_ACCESS_KEY: ${{ secrets.NEON_STORAGE_READ_SECRET }}
+          RCLONE_CONFIG_NEON_FORCE_PATH_STYLE: 'true'
+          RCLONE_CONFIG_R2_TYPE: s3
+          RCLONE_CONFIG_R2_PROVIDER: Cloudflare
+          RCLONE_CONFIG_R2_ENDPOINT: https://${{ secrets.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          RCLONE_CONFIG_R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          RCLONE_CONFIG_R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: rclone sync neon:media/originals r2:tz-media-mirror/originals --checksum --transfers 8

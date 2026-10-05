@@ -1,5 +1,7 @@
 # CMS, data and Svelte
 
+> **Superseded in part.** The build plan (`docs/cms-plan/03-database.md`) is the source for table and column names, and the app in `tuinzorgdp/` implements it: `requests` and `request_files` (not `leads`), `project_media` (not `project_photos`), a single-row `settings` table with JSON columns, `media.alt` and `media.object_key`. Review cards are entered in the CMS with the customer's consent and a source link (`reviews`), and only the Google rating and count are read nightly; review texts are not imported. Image variants are written at build time (480, 960, 1600 and 2400 px WebP in `/media/<id>-<width>.webp`). The SQL below is the original sketch.
+
 The site is SvelteKit. Content lives in PostgreSQL on Neon; photos live in Neon Object Storage and the database only stores their keys and dimensions. Every CMS-driven block on the home page reads from one table, so the client adds a service, a project or a service area without touching code.
 
 ## Principles
@@ -7,7 +9,7 @@ The site is SvelteKit. Content lives in PostgreSQL on Neon; photos live in Neon 
 - **Photos carry their size.** Store `width` and `height` with every image. The gallery uses them for the masonry ratio and to set `width`/`height` on `<img>`, so nothing jumps while loading.
 - **Photos need words.** A photo cannot be published without Dutch alt text; the CMS shows how many are missing.
 - **Placeholders are visible.** A record without a photo renders `MediaSlot` in its empty state (ratio + field name), never a broken image.
-- **No invented content.** Reviews come only from Google (cached), never typed in by hand.
+- **No invented content.** Reviews are real reviews, entered with the customer's consent and a link to the source.
 
 ## Tables (PostgreSQL)
 
