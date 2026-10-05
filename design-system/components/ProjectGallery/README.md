@@ -8,6 +8,8 @@ The completed-projects masonry: filter tags with counts, photos in mixed ratios 
 - Ratios: use the photo's own ratio snapped to `3x4`, `4x5`, `1x1`, `4x3` or `2x3`. Mixing them is what makes the masonry staggered; never force every tile to the same ratio.
 - Masonry is CSS columns: reading order runs down each column. The filter and the lightbox use DOM order, so keep the newest first.
 
+- `.tz-gallery--lg` for the gallery page (`/realisaties`): larger photos, 2 columns from 768px and 3 from 1100px. In the lightbox, `.tz-lightbox__link` leads to the realisatie the photo belongs to.
+
 ## Responsive
 - 2 columns and 12px gaps on phones, 3 from 768px, 4 from 1100px with 24px gaps. Captions are always visible on touch screens and appear on hover with a mouse.
 

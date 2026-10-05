@@ -421,6 +421,10 @@ body { margin: 0; }
 .tz-gallery__more { display: flex; justify-content: center; margin-top: var(--space-xl); }
 @media (min-width: 768px) { .tz-gallery { columns: 3; column-gap: var(--space-md); } .tz-shot { margin-bottom: var(--space-md); } }
 @media (min-width: 1100px) { .tz-gallery { columns: 4; column-gap: var(--space-lg); } .tz-shot { margin-bottom: var(--space-lg); } }
+/* --lg: the gallery page (/realisaties), larger photos: 2 columns from 768px, 3 from 1100px. */
+@media (min-width: 768px) { .tz-gallery--lg { columns: 2; } }
+@media (min-width: 1100px) { .tz-gallery--lg { columns: 3; } }
+.tz-lightbox__link { color: var(--white); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 @media (hover: hover) and (min-width: 768px) {
   .tz-shot__cap { opacity: 0; transform: translateY(6px); transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
   .tz-shot:hover .tz-shot__cap, .tz-shot:focus-visible .tz-shot__cap { opacity: 1; transform: none; }
@@ -575,6 +579,12 @@ body { margin: 0; }
 .tz-input-group { display: flex; align-items: stretch; }
 .tz-input-group .tz-input { border-top-right-radius: 0; border-bottom-right-radius: 0; }
 .tz-input-group__addon { display: inline-flex; align-items: center; padding: 0 var(--space-md); border: 1.5px solid var(--line-strong); border-left: 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; background: var(--surface-sunken); color: var(--ink-soft); font: 600 15px/1 var(--font-sans); }
+/* Password field with a show/hide button (FormField with type="password"). */
+.tz-input-reveal { position: relative; }
+.tz-input-reveal .tz-input { padding-right: 56px; }
+.tz-input-reveal__btn { position: absolute; top: 50%; right: 4px; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: var(--radius-sm); background: transparent; color: var(--ink-soft); cursor: pointer; }
+.tz-input-reveal__btn:hover { background: var(--tint); color: var(--heading); }
+.tz-input-reveal__btn[aria-pressed="true"] { color: var(--heading); }
 .tz-count { justify-self: end; font-size: 13px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
 .tz-msg { display: none; align-items: flex-start; gap: 6px; font: 600 14px/1.4 var(--font-sans); }
 .tz-msg .tz-icon { width: 18px; height: 18px; margin-top: 1px; }
