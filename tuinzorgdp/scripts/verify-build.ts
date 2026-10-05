@@ -139,6 +139,14 @@ const indexable =
 if (!indexable && !/Disallow: \/\s*$/m.test(robots))
 	fail('robots.txt must block all crawlers on the test site');
 
+// 3b. llms.txt (generative search) exists and lists every published service.
+const llms = existsSync(path.join(OUT, 'llms.txt'))
+	? readFileSync(path.join(OUT, 'llms.txt'), 'utf8')
+	: '';
+if (!llms.startsWith('# ')) fail('llms.txt missing or not starting with a # title');
+for (const sv of content.services)
+	if (!llms.includes(`/diensten/${sv.slug})`)) fail(`llms.txt misses service ${sv.slug}`);
+
 // 4. No unpublished row appears anywhere.
 const allHtml = [...walk(OUT)]
 	.filter((f) => f.endsWith('.html'))

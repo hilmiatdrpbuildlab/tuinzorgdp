@@ -55,7 +55,15 @@ const config = {
 			}
 		},
 		prerender: {
-			entries: ['*', '/sitemap.xml', '/robots.txt', '/404', '/bedankt', '/formulier-fout'],
+			entries: [
+				'*',
+				'/sitemap.xml',
+				'/robots.txt',
+				'/llms.txt',
+				'/404',
+				'/bedankt',
+				'/formulier-fout'
+			],
 			handleHttpError: ({ path, message }) => {
 				// Generated images and the build info are written by scripts before vite build.
 				if (path.startsWith('/media/') || path === '/build-info.json') return;

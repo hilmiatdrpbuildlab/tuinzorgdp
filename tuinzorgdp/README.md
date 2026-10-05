@@ -34,6 +34,10 @@ The seed and import scripts open the same PGlite database as the dev server, and
 
 Without `DATABASE_URL_BUILD`, `npm run build` builds from the seed content (`src/lib/server/seed-data.ts`), with the draft projects shown, so the build works offline and in CI.
 
+## SEO and GEO
+
+SEO is edited in the CMS (title, description and slug per page, SEO & redirects, Werkgebied landing pages, company details in Instellingen); the sitemap, `robots.txt`, canonical URLs and JSON-LD are generated at build. For generative search engines (GEO), `/llms.txt` ([llmstxt.org](https://llmstxt.org)) is generated at every build from the published content by `src/lib/llms.ts`: services, realisaties, werkgebied, FAQ and contact details, so it needs no separate editing. Until `SITE_INDEXABLE=true`, `robots.txt` blocks every crawler, AI crawlers included.
+
 ## Layout
 
 ```
