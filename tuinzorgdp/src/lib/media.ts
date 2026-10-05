@@ -37,6 +37,7 @@ export const SIZES = {
 	service: '(min-width: 1100px) 33vw, (min-width: 640px) 50vw, 100vw',
 	featured: '(min-width: 900px) 66vw, 100vw',
 	gallery: '(min-width: 1100px) 25vw, (min-width: 768px) 33vw, 50vw',
+	galleryLarge: '(min-width: 1100px) 33vw, 50vw',
 	social: '(min-width: 1024px) 16vw, 50vw',
 	half: '(min-width: 1024px) 50vw, 100vw',
 	third: '(min-width: 1024px) 33vw, 100vw',

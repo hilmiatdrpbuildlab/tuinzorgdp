@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import FormField from '$lib/components/FormField.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 
 	let { form } = $props();
@@ -9,7 +10,7 @@
 <svelte:head><title>Aanmelden | TuinZorg DP beheer</title></svelte:head>
 
 <h1 class="t-h3">Aanmelden</h1>
-<p class="adm-muted">Beheer van tuinzorgdp.be. Na uw wachtwoord krijgt u een code per e-mail.</p>
+<p class="adm-muted">Beheer van tuinzorgdp.be.</p>
 
 {#if form?.message}
 	<div class="tz-alert tz-alert--danger" role="alert">
@@ -29,29 +30,23 @@
 		};
 	}}
 >
-	<div class="tz-field">
-		<label class="tz-label" for="email">E-mailadres</label>
-		<input
-			class="tz-input"
-			id="email"
-			name="email"
-			type="email"
-			autocomplete="username"
-			required
-			value={form?.email ?? ''}
-		/>
-	</div>
-	<div class="tz-field">
-		<label class="tz-label" for="password">Wachtwoord</label>
-		<input
-			class="tz-input"
-			id="password"
-			name="password"
-			type="password"
-			autocomplete="current-password"
-			required
-		/>
-	</div>
+	<FormField
+		label="E-mailadres"
+		name="email"
+		id="email"
+		type="email"
+		autocomplete="username"
+		required
+		value={form?.email ?? ''}
+	/>
+	<FormField
+		label="Wachtwoord"
+		name="password"
+		id="password"
+		type="password"
+		autocomplete="current-password"
+		required
+	/>
 	<button class={['tz-btn tz-btn--block', busy && 'is-loading']} type="submit" disabled={busy}
 		>{#if busy}<Icon name="loader-circle" class="tz-spin" />{/if}<span class="tz-btn__label"
 			>Verder</span

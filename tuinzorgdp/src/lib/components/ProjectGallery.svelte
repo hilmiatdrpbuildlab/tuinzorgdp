@@ -13,13 +13,16 @@
 		limit,
 		showFilter = true,
 		/** On /realisaties the filter is kept in ?dienst= so a filtered view can be shared. */
-		urlParam = false
+		urlParam = false,
+		/** The gallery page: larger photos (.tz-gallery--lg) and a link to each photo's realisatie. */
+		large = false
 	}: {
 		photos: GalleryPhoto[];
 		id?: string;
 		limit?: number;
 		showFilter?: boolean;
 		urlParam?: boolean;
+		large?: boolean;
 	} = $props();
 
 	const shown = $derived(limit ? photos.slice(0, limit) : photos);
@@ -75,15 +78,16 @@
 	</div>
 {/if}
 
-<div class="tz-gallery" {id}>
+<div class={['tz-gallery', large && 'tz-gallery--lg']} {id}>
 	{#each shown as photo, i (photo.media.id + photo.projectSlug)}
 		<GalleryShot
 			{photo}
 			ratio={galleryRatio(photo.media.width, photo.media.height, i)}
 			hidden={!!active && photo.serviceSlug !== active}
+			{large}
 			onopen={(el) => lightbox?.open(visible.indexOf(photo), el)}
 		/>
 	{/each}
 </div>
 
-<Lightbox bind:this={lightbox} photos={visible} id={`${id}-lightbox`} />
+<Lightbox bind:this={lightbox} photos={visible} id={`${id}-lightbox`} projectLinks={large} />

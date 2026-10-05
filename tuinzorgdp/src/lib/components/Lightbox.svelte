@@ -3,7 +3,11 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { SIZES, mediaSrc, srcset, variantWidths } from '$lib/media';
 
-	let { photos, id }: { photos: GalleryPhoto[]; id: string } = $props();
+	let {
+		photos,
+		id,
+		projectLinks = false
+	}: { photos: GalleryPhoto[]; id: string; projectLinks?: boolean } = $props();
 
 	let dialog: HTMLDialogElement | undefined = $state();
 	let index = $state(0);
@@ -57,6 +61,9 @@
 		<div class="tz-lightbox__bar">
 			<div class="tz-lightbox__cap">
 				<strong>{current.media.alt || current.title}</strong><span>{current.category}</span>
+				{#if projectLinks}<a class="tz-lightbox__link" href="/realisaties/{current.projectSlug}"
+						>{current.title}</a
+					>{/if}
 			</div>
 			<div class="tz-lightbox__nav">
 				<button

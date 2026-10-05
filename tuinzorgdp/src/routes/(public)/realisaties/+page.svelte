@@ -23,7 +23,12 @@
 			id="real-title"
 		/>
 		{#if data.gallery.length}
-			<ProjectGallery photos={data.gallery} id="gallery-all" urlParam />
+			<p class="app-ink-soft app-gallery-count">
+				{data.gallery.length} foto's van {data.projects.length}
+				{data.projects.length === 1 ? 'realisatie' : 'realisaties'}. Klik op een foto om ze groot te
+				bekijken.
+			</p>
+			<ProjectGallery photos={data.gallery} id="gallery-all" urlParam large />
 		{:else}
 			<p class="t-lead">Binnenkort ziet u hier onze realisaties.</p>
 		{/if}
@@ -33,7 +38,7 @@
 {#if data.projects.length}
 	<section class="tz-section tz-bg-surface" aria-labelledby="projects-title">
 		<div class="tz-container tz-stack">
-			<h2 class="t-h2" id="projects-title">Alle projecten</h2>
+			<h2 class="t-h2" id="projects-title">Bekijk per project</h2>
 			<div class="app-cards">
 				{#each data.projects as p (p.slug)}
 					<article class="tz-card tz-card--interactive">

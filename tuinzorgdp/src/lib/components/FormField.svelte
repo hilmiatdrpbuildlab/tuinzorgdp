@@ -17,6 +17,8 @@
 		placeholderOption?: string;
 		maxlength?: number;
 		count?: boolean;
+		/** Password fields get a button to show or hide what was typed. */
+		reveal?: boolean;
 		class?: string;
 	} & Omit<HTMLInputAttributes, 'value' | 'class' | 'id' | 'name'>;
 
@@ -35,9 +37,13 @@
 		placeholderOption = 'Maak een keuze',
 		maxlength,
 		count = false,
+		reveal = true,
 		class: className = '',
 		...rest
 	}: Props = $props();
+
+	let shown = $state(false);
+	const isPassword = $derived(rest.type === 'password' && reveal);
 
 	const describedBy = $derived(
 		[error ? `${id}-err` : null, hint ? `${id}-hint` : null, count ? `${id}-count` : null]
@@ -81,6 +87,29 @@
 				{#each options as o (o)}<option>{o}</option>{/each}
 			</select>
 			<Icon name="chevron-down" />
+		</div>
+	{:else if isPassword}
+		<div class="tz-input-reveal">
+			<input
+				class="tz-input"
+				{id}
+				{name}
+				{required}
+				{maxlength}
+				bind:value
+				aria-invalid={error ? 'true' : undefined}
+				aria-describedby={describedBy}
+				{...rest}
+				type={shown ? 'text' : 'password'}
+			/>
+			<button
+				type="button"
+				class="tz-input-reveal__btn"
+				aria-controls={id}
+				aria-pressed={shown}
+				aria-label={shown ? 'Wachtwoord verbergen' : 'Wachtwoord tonen'}
+				onclick={() => (shown = !shown)}><Icon name={shown ? 'eye-off' : 'eye'} /></button
+			>
 		</div>
 	{:else}
 		<input

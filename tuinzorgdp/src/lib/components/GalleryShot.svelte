@@ -8,11 +8,13 @@
 		photo,
 		ratio,
 		hidden = false,
+		large = false,
 		onopen
 	}: {
 		photo: GalleryPhoto;
 		ratio: Ratio;
 		hidden?: boolean;
+		large?: boolean;
 		onopen: (el: HTMLElement) => void;
 	} = $props();
 </script>
@@ -26,7 +28,12 @@
 	onclick={(e) => onopen(e.currentTarget)}
 >
 	<span class="tz-badge tz-badge--glass tz-shot__badge">{photo.category}</span>
-	<MediaSlot media={photo.media} {ratio} as="span" sizes={SIZES.gallery} />
+	<MediaSlot
+		media={photo.media}
+		{ratio}
+		as="span"
+		sizes={large ? SIZES.galleryLarge : SIZES.gallery}
+	/>
 	<span class="tz-shot__cap"
 		><span>{photo.title}</span><span class="tz-icon-chip"><Icon name="maximize-2" /></span></span
 	>

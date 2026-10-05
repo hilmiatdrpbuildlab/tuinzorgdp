@@ -34,6 +34,7 @@
 	lead={data.home.hero.lead}
 	image={data.heroImage}
 	usps={data.home.hero.usps}
+	workHref={data.gallery.length ? '#realisaties' : '/realisaties'}
 	phone={s.company.phone}
 	rating={hasRating
 		? {
