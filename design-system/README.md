@@ -40,7 +40,7 @@ High-level rules for consistency:
 
 ## Imagery
 
-- 45 photos of the client's own work in `assets/photos/client`, named by what they show and grouped by service in `credits.json` (with Dutch alt text and the original file name). They are phone photos in portrait, resized to 1200px for this system; upload the originals to Neon Object Storage for the site.
+- 51 photos of the client's own work in `assets/photos/client`, named by what they show and grouped by service in `credits.json` (with Dutch alt text and the original file name). They are phone photos in portrait, resized to 1200px for this system; upload the originals to Neon Object Storage for the site.
 - Crop with `object-fit: cover`. Ratios are fixed per slot: hero full-bleed, service cards 4:3 (featured 16:9), gallery 3:4, 4:5, 1:1, 4:3 and 2:3 mixed for the masonry rhythm, social tiles 1:1, about collage 3:4 + 4:5, map 16:9.
 - Photos under text always get the hero `overlay` or the `scrim`.
 - Alt text in Dutch describes what is visible: "Gebogen border met cortenstalen afboording rond een terras". Decorative photos take `alt=""`.
@@ -50,7 +50,7 @@ High-level rules for consistency:
 
 - Lucide icons, inlined as SVG so they take `currentColor`, stroke 2, round caps: friendly, open line work that matches the logo's line drawing. 20px by default (`.tz-icon`), 18px in buttons, 24px in icon chips, 26px in service tiles.
 - Icons sit in round **icon chips** (`.tz-icon-chip`: `tint` fill, `heading` icon; `--solid` uses `accent`).
-- Fixed roles: `mower` (custom) for maaien, `grass` (custom) for gazononderhoud, `shovel` for onkruid, `scissors` for snoeien, `fence` for lamellen, `ruler` for afboording, `layers` for materialen; `arrow-right` in buttons and links, `phone`, `mail`, `map-pin`, `clock` for contact, `check` in lists, `star` and `quote` in reviews, `maximize-2` on gallery photos, `image-plus` in empty media slots, `info`, `circle-check`, `triangle-alert`, `circle-x` for status.
+- Fixed roles: `mower` (custom) for maaien, `grass` (custom) for gazononderhoud, `shovel` for onkruid, `scissors` for snoeien, `trees` for aanplanten, `fence` for lamellen, `ruler` for afboording, `layers` for materialen; `arrow-right` in buttons and links, `phone`, `mail`, `map-pin`, `clock` for contact, `check` in lists, `star` and `quote` in reviews, `maximize-2` on gallery photos, `image-plus` in empty media slots, `info`, `circle-check`, `triangle-alert`, `circle-x` for status.
 - Brand marks from Simple Icons (filled): Google, Facebook, Instagram, WhatsApp. Only in reviews, social and contact.
 - Icons beside text get `aria-hidden="true"`; icon-only buttons get a Dutch `aria-label`.
 

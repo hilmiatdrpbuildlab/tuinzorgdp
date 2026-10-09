@@ -14,7 +14,16 @@ import { fields } from '$lib/server/form';
 import { dbMessage, saveTx } from '$lib/server/save';
 import type { Actions, PageServerLoad } from './$types';
 
-const ICONS = ['mower', 'grass', 'shovel', 'scissors', 'fence', 'ruler', 'layers'] as const;
+const ICONS = [
+	'mower',
+	'grass',
+	'shovel',
+	'scissors',
+	'fence',
+	'ruler',
+	'layers',
+	'trees'
+] as const;
 
 export const load: PageServerLoad = async ({ locals, params }) => {
 	requireUser(locals);

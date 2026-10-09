@@ -1,12 +1,10 @@
 <script lang="ts">
+	import { perkIcon, type PerkIcon } from '$lib/content/perk-icons';
 	import type { Media } from '$lib/content/types';
 	import Icon from '$lib/icons/Icon.svelte';
-	import type { IconName } from '$lib/icons/icons';
 	import { SIZES } from '$lib/media';
 	import AccentTitle from './AccentTitle.svelte';
 	import MediaSlot from './MediaSlot.svelte';
-
-	const PERK_ICONS: IconName[] = ['badge-check', 'handshake', 'message-circle', 'recycle'];
 
 	let {
 		eyebrow,
@@ -21,7 +19,7 @@
 		title: string;
 		accentWord?: string | null;
 		lead: string;
-		perks: { title: string; text: string }[];
+		perks: { title: string; text: string; icon?: PerkIcon }[];
 		photos: (Media | null)[];
 		linkHref?: string;
 	} = $props();
@@ -45,9 +43,7 @@
 				sizes={SIZES.third}
 				field="pages.home · about-foto 2"
 				class="app-relative"
-			>
-				<span class="tz-badge tz-badge--glass"><Icon name="truck" /> Altijd op tijd</span>
-			</MediaSlot>
+			/>
 		</div>
 		<div class="tz-about__copy">
 			<span class="tz-eyebrow tz-eyebrow--pill"><span class="tz-leaf"></span>{eyebrow}</span>
@@ -56,7 +52,7 @@
 			<ul class="tz-perks" role="list">
 				{#each perks as perk, i (perk.title)}
 					<li class="tz-perk">
-						<span class="tz-icon-chip"><Icon name={PERK_ICONS[i % 4]} /></span>
+						<span class="tz-icon-chip"><Icon name={perkIcon(perk.icon, i)} /></span>
 						<div><strong>{perk.title}</strong><span>{perk.text}</span></div>
 					</li>
 				{/each}

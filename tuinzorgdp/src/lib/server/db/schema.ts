@@ -46,7 +46,8 @@ export const serviceIcon = pgEnum('service_icon', [
 	'scissors',
 	'fence',
 	'ruler',
-	'layers'
+	'layers',
+	'trees'
 ]);
 export const photoRole = pgEnum('photo_role', ['before', 'after', 'process', 'result']);
 export const reviewSource = pgEnum('review_source', ['google', 'direct']);

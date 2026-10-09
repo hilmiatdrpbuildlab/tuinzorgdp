@@ -1,6 +1,6 @@
 # Photos
 
-`client/`: 45 photos of TuinZorg DP's own jobs from the client's `assets` folder, renamed by what they show and resized to 1200px on the long side (JPEG, quality 78). `credits.json` lists for each one the Dutch alt text, the service category, the original file name and notes.
+`client/`: 51 photos of TuinZorg DP's own jobs from the client's `assets` folder, renamed by what they show and resized to 1200px on the long side (JPEG, quality 78). `credits.json` lists for each one the Dutch alt text, the service category, the original file name and notes.
 
 | Category | Files | Use |
 | --- | --- | --- |

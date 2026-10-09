@@ -1,5 +1,6 @@
 /** `pages.blocks` is validated per slug (docs/cms-plan/03-database.md). Only the home page has blocks. */
 import { z } from 'zod';
+import { PERK_ICON_NAMES } from '$lib/content/perk-icons';
 
 const text = (max: number, message: string) =>
 	z.string().trim().min(1, message).max(max, `Maximaal ${max} tekens.`);
@@ -22,10 +23,12 @@ export const homeBlocks = z
 				.array(
 					z.object({
 						title: text(40, 'Vul elke titel in.'),
-						text: text(120, 'Vul elke uitleg in.')
+						text: text(120, 'Vul elke uitleg in.'),
+						icon: z.enum(PERK_ICON_NAMES).optional()
 					})
 				)
-				.length(4, 'Geef precies vier voordelen.'),
+				.min(1, 'Geef minstens één voordeel.')
+				.max(6, 'Maximaal zes voordelen.'),
 			mediaIds: z.array(z.string().uuid()).max(2)
 		}),
 		cta: z.object({

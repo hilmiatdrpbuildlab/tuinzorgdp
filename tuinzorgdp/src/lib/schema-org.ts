@@ -2,6 +2,12 @@
 import type { Area, Faq, Project, Service, SiteSettings } from '$lib/content/types';
 import { hoursDays } from '$lib/hours-schema';
 
+/** The published municipalities, or the region when none is published yet. */
+function served(areas: Area[], region: string | undefined) {
+	if (areas.length) return { areaServed: areas.map((a) => ({ '@type': 'City', name: a.name })) };
+	return region ? { areaServed: { '@type': 'AdministrativeArea', name: region } } : {};
+}
+
 type Json = Record<string, unknown>;
 
 export function business(
@@ -40,7 +46,7 @@ export function business(
 		...(typeof s.geo.lat === 'number' && typeof s.geo.lng === 'number'
 			? { geo: { '@type': 'GeoCoordinates', latitude: s.geo.lat, longitude: s.geo.lng } }
 			: {}),
-		...(areas.length ? { areaServed: areas.map((a) => ({ '@type': 'City', name: a.name })) } : {}),
+		...served(areas, c.region),
 		...(days && s.hours.opens && s.hours.closes
 			? {
 					openingHoursSpecification: [
@@ -75,7 +81,7 @@ export function business(
 	};
 }
 
-export function service(siteUrl: string, sv: Service, areas: Area[]): Json {
+export function service(siteUrl: string, sv: Service, areas: Area[], region?: string): Json {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
@@ -83,7 +89,7 @@ export function service(siteUrl: string, sv: Service, areas: Area[]): Json {
 		description: sv.summary,
 		url: `${siteUrl}/diensten/${sv.slug}`,
 		provider: { '@id': `${siteUrl}/#business` },
-		...(areas.length ? { areaServed: areas.map((a) => ({ '@type': 'City', name: a.name })) } : {})
+		...served(areas, region)
 	};
 }
 

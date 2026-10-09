@@ -31,8 +31,9 @@
 			<div class="tz-footer__brand">
 				<img src="/logo/tz-logo-on-dark.svg" alt={c.name} width="245" height="56" loading="lazy" />
 				<p>
-					Professioneel en betrouwbaar tuinonderhoud voor particulieren en bedrijven{#if c.region}&nbsp;in
-						{c.region}{/if}, België.
+					Professioneel en betrouwbaar tuinonderhoud voor particulieren en bedrijven.
+					{#if c.city}Gevestigd in {c.city}{#if c.region}, actief in heel {c.region}{/if}.{:else if c.region}Actief
+						in heel {c.region}.{/if}
 				</p>
 				<a class="tz-btn tz-btn--sm" href={quoteHref}>Offerte aanvragen</a>
 				<div class="tz-footer__social">
@@ -82,8 +83,9 @@
 						{#if showStreet || place}
 							<span
 								><Icon name="map-pin" /><span
-									>{#if showStreet}{c.street}<br />{/if}{#if place}{place},
-									{/if}België</span
+									>{#if showStreet}{c.street}<br />{/if}{place
+										? `${place}, België`
+										: 'België'}</span
 								></span
 							>
 						{/if}

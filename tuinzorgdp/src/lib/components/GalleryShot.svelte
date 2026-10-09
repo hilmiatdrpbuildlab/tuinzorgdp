@@ -35,6 +35,8 @@
 		sizes={large ? SIZES.galleryLarge : SIZES.gallery}
 	/>
 	<span class="tz-shot__cap"
-		><span>{photo.title}</span><span class="tz-icon-chip"><Icon name="maximize-2" /></span></span
+		><span>{photo.media.alt || photo.title}</span><span class="tz-icon-chip"
+			><Icon name="maximize-2" /></span
+		></span
 	>
 </button>

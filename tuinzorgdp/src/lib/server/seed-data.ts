@@ -94,7 +94,7 @@ export const seedServices = [
 		body: 'Onkruid tussen de tegels of in de borders maakt een tuin snel rommelig. Wij verwijderen het zorgvuldig, in borders, op paden en tussen de bestrating.\n\nWilt u minder onkruid in de toekomst? Een laag schors of grind in de borders helpt.',
 		bullets: ['Onkruid uit borders en plantvakken', 'Paden en bestrating onkruidvrij'],
 		icon: 'shovel' as const,
-		cover: null,
+		cover: 'onkruid-voortuin-na.jpg',
 		is_featured: false
 	},
 	{
@@ -113,6 +113,24 @@ export const seedServices = [
 		],
 		icon: 'scissors' as const,
 		cover: 'haag-tegelpad.jpg',
+		is_featured: false
+	},
+	{
+		slug: 'aanplanten',
+		title: 'Aanplanten',
+		short_label: 'Planten',
+		subtitle: 'Borders, hagen en bomen',
+		summary:
+			'Wij planten nieuwe borders, hagen en bomen aan, met de juiste plant op de juiste plek en een goede start in de grond.',
+		body: 'Een nieuwe border, een haag die privacy geeft of een boom als blikvanger: wij zorgen dat uw planten goed in de grond komen.\n\nWij bereiden de grond voor, planten op de juiste afstand en diepte, zetten bomen vast met boompalen en werken de border af met schors of een strakke boordrand.',
+		bullets: [
+			'Borders met vaste planten en heesters',
+			'Hagen aanplanten',
+			'Bomen planten met boompalen',
+			'Afwerking met schors of boordrand'
+		],
+		icon: 'trees' as const,
+		cover: 'beplanting-border-esdoorn.jpg',
 		is_featured: false
 	},
 	{
@@ -185,10 +203,36 @@ export const seedPages = [
 				accentWord: 'tuinonderhoud',
 				lead: 'Met passie voor groen en oog voor detail zorg ik ervoor dat iedere tuin netjes, gezond en verzorgd blijft. Een kleine stadstuin of een ruime buitenruimte: elke opdracht krijgt dezelfde aandacht.',
 				perks: [
-					{ title: 'Ervaring', text: 'Praktijkkennis van alle soorten tuinen.' },
-					{ title: 'Betrouwbaar', text: 'Afspraken worden altijd nagekomen.' },
-					{ title: 'Persoonlijke aanpak', text: 'Werk afgestemd op uw wensen en uw tuin.' },
-					{ title: 'Duurzaam', text: 'Zorg voor gezonde planten en respect voor de natuur.' }
+					{
+						title: 'Ervaring',
+						text: 'Praktijkkennis van alle soorten tuinen.',
+						icon: 'badge-check'
+					},
+					{
+						title: 'Betrouwbaar',
+						text: 'Afspraken worden altijd nagekomen.',
+						icon: 'shield-check'
+					},
+					{
+						title: 'Persoonlijke aanpak',
+						text: 'Werk afgestemd op uw wensen en uw tuin.',
+						icon: 'handshake'
+					},
+					{
+						title: 'Duurzaam',
+						text: 'Zorg voor gezonde planten en respect voor de natuur.',
+						icon: 'sprout'
+					},
+					{
+						title: 'Communicatie',
+						text: 'Heldere afspraken en altijd bereikbaar voor uw vragen.',
+						icon: 'message-circle'
+					},
+					{
+						title: 'Flexibiliteit',
+						text: 'Een planning die zich aanpast aan u en het weer.',
+						icon: 'calendar'
+					}
 				],
 				mediaIds: [mediaId('cortenstaal-border.jpg'), mediaId('bestelwagen-oprit.jpg')]
 			},
@@ -330,52 +374,73 @@ export const seedSettings = {
 
 // ---------------------------------------------------------------- draft projects, one per photo group
 
-const GROUPS: { folder: string; slug: string; title: string; service: string; summary: string }[] =
-	[
-		{
-			folder: 'maaien',
-			slug: 'maaien-en-gazons-strak-gemaaid',
-			title: 'Gazons strak gemaaid',
-			service: 'maaien-en-bosmaaien',
-			summary: 'Gazons gemaaid op de juiste hoogte, met strakke strepen en nette randen.'
-		},
-		{
-			folder: 'Verticuteren en grasmatten',
-			slug: 'verticuteren-en-nieuwe-graszoden',
-			title: 'Verticuteren en nieuwe graszoden',
-			service: 'gazononderhoud',
-			summary: 'Gazons geverticuteerd, oud gras afgepeld en nieuwe graszoden gelegd.'
-		},
-		{
-			folder: 'Snoeien',
-			slug: 'hagen-en-vormsnoei',
-			title: 'Hagen en vormsnoei',
-			service: 'snoeien',
-			summary: 'Beukenhagen, ligusters en taxuszuilen strak in vorm gesnoeid.'
-		},
-		{
-			folder: 'Lamellen',
-			slug: 'lamellen-in-draadafsluiting',
-			title: 'Lamellen in draadafsluiting',
-			service: 'lamellen-plaatsen',
-			summary:
-				'Lamellen geplaatst in een draadafsluiting, rond een containerplaats en bij een poort.'
-		},
-		{
-			folder: 'Plaatsen tuinafboording',
-			slug: 'tuinafboording-en-cortenstaal',
-			title: 'Tuinafboording en cortenstaal',
-			service: 'tuinafboording',
-			summary: 'Rechte en gebogen afboordingen, ook in cortenstaal, rond borders en terras.'
-		},
-		{
-			folder: 'Invoeren substraten',
-			slug: 'schors-en-grind-ingevoerd',
-			title: 'Schors en grind ingevoerd',
-			service: 'materialen-invoeren',
-			summary: 'Borders en paden voorzien van houtschors en grind.'
-		}
-	];
+const GROUPS: {
+	folder: string;
+	slug: string;
+	title: string;
+	service: string;
+	summary: string;
+	cover?: string;
+}[] = [
+	{
+		folder: 'maaien',
+		slug: 'maaien-en-gazons-strak-gemaaid',
+		title: 'Gazons strak gemaaid',
+		service: 'maaien-en-bosmaaien',
+		summary: 'Gazons gemaaid op de juiste hoogte, met strakke strepen en nette randen.'
+	},
+	{
+		folder: 'Verticuteren en grasmatten',
+		slug: 'verticuteren-en-nieuwe-graszoden',
+		title: 'Verticuteren en nieuwe graszoden',
+		service: 'gazononderhoud',
+		summary: 'Gazons geverticuteerd, oud gras afgepeld en nieuwe graszoden gelegd.'
+	},
+	{
+		folder: 'Onkruidbestrijding',
+		slug: 'voortuin-onkruidvrij-gemaakt',
+		title: 'Voortuin onkruidvrij gemaakt',
+		service: 'onkruidbestrijding',
+		summary: 'Een voortuin vol onkruid tussen het grind en de klinkers, weer helemaal netjes.',
+		cover: 'onkruid-voortuin-na.jpg'
+	},
+	{
+		folder: 'Snoeien',
+		slug: 'hagen-en-vormsnoei',
+		title: 'Hagen en vormsnoei',
+		service: 'snoeien',
+		summary: 'Beukenhagen, ligusters en taxuszuilen strak in vorm gesnoeid.'
+	},
+	{
+		folder: 'Planten',
+		slug: 'borders-hagen-en-bomen-aangeplant',
+		title: 'Borders, hagen en bomen aangeplant',
+		service: 'aanplanten',
+		summary:
+			'Nieuwe borders met vaste planten en lavendel, een strook lavendel langs de haag en een jonge boom met boompalen.'
+	},
+	{
+		folder: 'Lamellen',
+		slug: 'lamellen-in-draadafsluiting',
+		title: 'Lamellen in draadafsluiting',
+		service: 'lamellen-plaatsen',
+		summary: 'Lamellen geplaatst in een draadafsluiting, rond een containerplaats en bij een poort.'
+	},
+	{
+		folder: 'Plaatsen tuinafboording',
+		slug: 'tuinafboording-en-cortenstaal',
+		title: 'Tuinafboording en cortenstaal',
+		service: 'tuinafboording',
+		summary: 'Rechte en gebogen afboordingen, ook in cortenstaal, rond borders en terras.'
+	},
+	{
+		folder: 'Invoeren substraten',
+		slug: 'schors-en-grind-ingevoerd',
+		title: 'Schors en grind ingevoerd',
+		service: 'materialen-invoeren',
+		summary: 'Borders en paden voorzien van houtschors en grind.'
+	}
+];
 
 /** The twelve photos of the design system's home gallery, in its order. */
 export const HOME_GALLERY = [
@@ -399,14 +464,23 @@ const ROLE_HINTS: Record<string, 'before' | 'after' | 'process'> = {
 	'afpelmachine.jpg': 'process',
 	'gazon-afgepeld.jpg': 'process',
 	'schors-aanhangwagen.jpg': 'process',
-	'verticuteren-kruiwagen.jpg': 'process'
+	'verticuteren-kruiwagen.jpg': 'process',
+	'onkruid-voortuin-voor.jpg': 'before',
+	'onkruid-voortuin-na.jpg': 'after',
+	'afboording-staal-kruidenborder.jpg': 'process',
+	'afboording-staal-haag.jpg': 'process',
+	'afboording-staal-border-recht.jpg': 'process'
 };
 
-/** Photos that are not job results: the van (trust photos) and the one with the photographer's shadow. */
+/**
+ * Photos that are not job results (the van, the one with the photographer's shadow), and one that
+ * was removed from its project in the CMS.
+ */
 const NOT_IN_PROJECTS = new Set([
 	'bestelwagen-aanhanger.jpg',
 	'bestelwagen-oprit.jpg',
-	'gazon-strepen-terras.jpg'
+	'gazon-strepen-terras.jpg',
+	'afboording-border-haag.jpg'
 ]);
 
 export const seedProjects = GROUPS.map((g, i) => {
@@ -414,7 +488,9 @@ export const seedProjects = GROUPS.map((g, i) => {
 		(m) => m.original_path.split('/')[1] === g.folder && !NOT_IN_PROJECTS.has(m.file_name)
 	);
 	const coverFile =
-		photos.find((p) => HOME_GALLERY.includes(p.file_name))?.file_name ?? photos[0].file_name;
+		g.cover ??
+		photos.find((p) => HOME_GALLERY.includes(p.file_name))?.file_name ??
+		photos[0].file_name;
 	return {
 		id: stableId(`project:${g.slug}`),
 		slug: g.slug,

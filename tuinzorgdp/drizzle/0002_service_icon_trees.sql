@@ -1,0 +1,1 @@
+ALTER TYPE "public"."service_icon" ADD VALUE 'trees';

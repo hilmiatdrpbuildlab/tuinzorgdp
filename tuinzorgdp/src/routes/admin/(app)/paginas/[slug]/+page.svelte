@@ -8,6 +8,7 @@
 	import FormField from '$lib/components/FormField.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { saving } from '$lib/client/enhance';
+	import { PERK_ICONS, perkIcon } from '$lib/content/perk-icons';
 	import type { HomeBlocks } from '$lib/content/types';
 
 	let { data, form } = $props();
@@ -48,7 +49,9 @@
 		title: blocks.about?.title ?? '',
 		accentWord: blocks.about?.accentWord ?? '',
 		lead: blocks.about?.lead ?? '',
-		perks: [0, 1, 2, 3].map((i) => ({ ...(blocks.about?.perks?.[i] ?? { title: '', text: '' }) }))
+		perks: (blocks.about?.perks?.length ? blocks.about.perks : [{ title: '', text: '' }]).map(
+			(p, i) => ({ ...p, icon: perkIcon(p.icon, i) })
+		)
 	});
 	let ctaBlock = $state({
 		title: blocks.cta?.title ?? '',
@@ -171,9 +174,23 @@
 				error={errors['about.lead']}
 			/>
 			<fieldset class="adm-repeat">
-				<legend class="tz-label">Vier voordelen</legend>
+				<legend class="tz-label"
+					>Voordelen <span class="adm-muted">({aboutBlock.perks.length} van max. 6)</span></legend
+				>
 				{#each aboutBlock.perks as _, i (i)}
-					<div class="adm-two">
+					<div class="adm-perk-row">
+						<div class="adm-perk-icon">
+							<span class="tz-icon-chip"><Icon name={aboutBlock.perks[i].icon} /></span>
+							<select
+								class="tz-input"
+								name="perk_icon"
+								bind:value={aboutBlock.perks[i].icon}
+								aria-label="Voordeel {i + 1}, icoon"
+							>
+								{#each PERK_ICONS as opt (opt.name)}<option value={opt.name}>{opt.label}</option
+									>{/each}
+							</select>
+						</div>
 						<input
 							class="tz-input"
 							name="perk_title"
@@ -186,8 +203,30 @@
 							bind:value={aboutBlock.perks[i].text}
 							aria-label="Voordeel {i + 1}, uitleg"
 						/>
+						{#if aboutBlock.perks.length > 1}
+							<button
+								type="button"
+								class="tz-btn tz-btn--ghost tz-btn--icon tz-btn--sm"
+								aria-label="Voordeel {i + 1} verwijderen"
+								onclick={() => aboutBlock.perks.splice(i, 1)}><Icon name="trash-2" /></button
+							>
+						{/if}
 					</div>
 				{/each}
+				{#if aboutBlock.perks.length < 6}
+					<button
+						type="button"
+						class="tz-btn tz-btn--outline tz-btn--sm"
+						onclick={() =>
+							aboutBlock.perks.push({
+								title: '',
+								text: '',
+								icon: perkIcon(undefined, aboutBlock.perks.length)
+							})}><Icon name="plus" /> Voordeel toevoegen</button
+					>
+				{/if}
+				{#if errors['about.perks']}<span class="tz-msg tz-msg--error">{errors['about.perks']}</span
+					>{/if}
 			</fieldset>
 			<div class="adm-two">
 				<ImageField label="Foto 1 (3:4)" name="about_photo_1" bind:media={about1} />

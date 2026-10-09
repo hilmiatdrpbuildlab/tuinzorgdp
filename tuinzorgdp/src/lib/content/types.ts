@@ -1,5 +1,6 @@
 /** View models the public components render. Built from Neon rows (or the seed fallback) by server/content.ts. */
 import type { IconName } from '$lib/icons/icons';
+import type { PerkIcon } from './perk-icons';
 
 export type Media = {
 	id: string;
@@ -13,7 +14,7 @@ export type Media = {
 };
 
 export type ServiceIconName =
-	'mower' | 'grass' | 'shovel' | 'scissors' | 'fence' | 'ruler' | 'layers';
+	'mower' | 'grass' | 'shovel' | 'scissors' | 'fence' | 'ruler' | 'layers' | 'trees';
 
 export type Service = {
 	id: string;
@@ -133,7 +134,7 @@ export type HomeBlocks = {
 		title: string;
 		accentWord: string;
 		lead: string;
-		perks: { title: string; text: string }[];
+		perks: { title: string; text: string; icon?: PerkIcon }[];
 		mediaIds: string[];
 	};
 	cta: { title: string; accentWord: string; lead: string };

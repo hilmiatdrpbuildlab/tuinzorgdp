@@ -538,5 +538,197 @@
    1200
   ],
   "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-border-schutting.jpg",
+  "alt": "Nieuw aangeplante border met houtschors langs een houten schutting en een gebogen boordsteen",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-border-schutting.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-border-tuinbeeld.jpg",
+  "alt": "Border met heesters, agapanthus en een tuinbeeld voor een taxushaag, afgewerkt met houtschors",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-border-tuinbeeld.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-lavendel-klimophaag.jpg",
+  "alt": "Strook lavendel langs een klimophaag en een grindpad met stalen boordrand",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-lavendel-klimophaag.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-border-verbena.jpg",
+  "alt": "Smalle border met verbena en gaura in houtschors langs een houten schutting",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-border-verbena.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-boom-boompalen.jpg",
+  "alt": "Jonge boom met boompalen aangeplant in een gazon tussen strakke hagen",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-boom-boompalen.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/beplanting-border-esdoorn.jpg",
+  "alt": "Gebogen border met lavendel en een Japanse esdoorn voor een groene haag, met stalen boordrand",
+  "category": "Planten",
+  "source": "client",
+  "original": "assets/Planten/beplanting-border-esdoorn.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Service card: Planten."
+ },
+ {
+  "path": "assets/photos/client/onkruid-voortuin-voor.jpg",
+  "alt": "Voortuin vol onkruid en gras tussen het grind en de klinkers, voor de onderhoudsbeurt",
+  "category": "Onkruidbestrijding",
+  "source": "client",
+  "original": "assets/Onkruidbestrijding/onkruid-voortuin-voor.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Before photo."
+ },
+ {
+  "path": "assets/photos/client/onkruid-voortuin-na.jpg",
+  "alt": "Dezelfde voortuin met wit grind en een klinkerpad, volledig onkruidvrij",
+  "category": "Onkruidbestrijding",
+  "source": "client",
+  "original": "assets/Onkruidbestrijding/onkruid-voortuin-na.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "After photo. Service card: Onkruidbestrijding."
+ },
+ {
+  "path": "assets/photos/client/afboording-staal-kruidenborder.jpg",
+  "alt": "Stalen boordrand rond een kruidenborder, met vers aangevulde tuingrond",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/afboording-staal-kruidenborder.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Process photo."
+ },
+ {
+  "path": "assets/photos/client/afboording-staal-haag.jpg",
+  "alt": "Stalen tuinafboording rond een haag, met vers aangevulde tuingrond",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/afboording-staal-haag.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Process photo."
+ },
+ {
+  "path": "assets/photos/client/afboording-staal-border-recht.jpg",
+  "alt": "Rechte stalen afboording langs een border, met geëgaliseerde grond voor een nieuw gazon",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/afboording-staal-border-recht.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Process photo."
+ },
+ {
+  "path": "assets/photos/client/afboording-staal-gazon-gebogen.jpg",
+  "alt": "Gebogen stalen boordrand tussen gazon en border onder een kerselaar",
+  "category": "Tuinafboording",
+  "source": "client",
+  "original": "assets/Plaatsen tuinafboording/afboording-staal-gazon-gebogen.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/grind-strook-moderne-gevel.jpg",
+  "alt": "Strook wit grind met stalen boordrand langs een moderne gevel en het gazon",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/grind-strook-moderne-gevel.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/grind-rond-woning.jpg",
+  "alt": "Wit grind rondom een moderne woning, strak afgeboord tegen het gazon",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/grind-rond-woning.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/schors-borders-tegelpad.jpg",
+  "alt": "Tegelpad naar de voordeur met borders in houtschors en een haagbeuk",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/schors-borders-tegelpad.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
+ },
+ {
+  "path": "assets/photos/client/schors-siergrassen-voortuin.jpg",
+  "alt": "Voortuin met siergrassen, buxus en een border in houtschors langs een beukenhaag",
+  "category": "Invoeren materialen",
+  "source": "client",
+  "original": "assets/Invoeren substraten/schors-siergrassen-voortuin.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": ""
  }
 ]

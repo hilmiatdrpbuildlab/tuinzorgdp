@@ -459,7 +459,7 @@
 }
 .adm-gallery__row {
 	display: grid;
-	grid-template-columns: 72px minmax(0, 1fr);
+	grid-template-columns: 96px minmax(0, 1fr);
 	gap: var(--space-sm);
 	padding: var(--space-sm);
 	border: 1px solid var(--line);
@@ -468,13 +468,17 @@
 }
 @media (min-width: 640px) {
 	.adm-gallery__row {
-		grid-template-columns: 96px minmax(0, 1fr) auto;
+		grid-template-columns: 144px minmax(0, 1fr) auto;
 		align-items: center;
 	}
 }
 .adm-gallery__row img {
+	/* Cropped like the cover preview above (360 × 280). height: auto overrides the image's
+	   height attribute (e.g. 2040), which otherwise stretched the column into a tall strip. */
+	display: block;
 	width: 100%;
-	aspect-ratio: 1;
+	height: auto;
+	aspect-ratio: 9 / 7;
 	object-fit: cover;
 	border-radius: var(--radius-xs);
 }
@@ -641,4 +645,47 @@
 }
 a.tz-tag {
 	text-decoration: none;
+}
+
+/* Pagina's > Home: one reason per row (title, explanation, delete). */
+.adm-perk-row {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: var(--space-xs);
+	align-items: center;
+}
+/* Phone: icon, title, text stacked with the delete button beside the icon. */
+.adm-perk-row > .tz-input {
+	grid-column: 1;
+}
+.adm-perk-row > .tz-btn {
+	grid-column: 2;
+	grid-row: 1;
+}
+.adm-perk-row + .adm-perk-row {
+	padding-top: var(--space-sm);
+	border-top: 1px solid var(--line);
+}
+.adm-perk-icon {
+	display: flex;
+	gap: var(--space-xs);
+	align-items: center;
+	min-width: 0;
+}
+.adm-perk-icon .tz-icon-chip {
+	flex: none;
+}
+@media (min-width: 900px) {
+	.adm-perk-row {
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 2fr) auto;
+	}
+	.adm-perk-row > .tz-input,
+	.adm-perk-row > .tz-btn {
+		grid-column: auto;
+		grid-row: auto;
+	}
+	.adm-perk-row + .adm-perk-row {
+		padding-top: 0;
+		border-top: 0;
+	}
 }

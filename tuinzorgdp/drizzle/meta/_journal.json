@@ -15,6 +15,13 @@
       "when": 1791191048666,
       "tag": "0001_triggers_and_roles",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791557562628,
+      "tag": "0002_service_icon_trees",
+      "breakpoints": true
     }
   ]
 }

@@ -32,7 +32,11 @@ export function llmsTxt(content: SiteContent, siteUrl: string): string {
 			: place
 				? `- Gemeente: ${place}, België`
 				: null,
-		areas.length ? `- Werkgebied: ${areas.join(', ')} en omstreken` : null,
+		areas.length
+			? `- Werkgebied: ${areas.join(', ')} en omstreken`
+			: c.region
+				? `- Werkgebied: heel ${c.region}`
+				: null,
 		hoursText(s.hours) ? `- Openingsuren: ${hoursText(s.hours)}` : null,
 		c.vat ? `- Ondernemingsnummer: ${c.vat}` : null,
 		typeof s.google.rating === 'number' && s.google.ratingCount

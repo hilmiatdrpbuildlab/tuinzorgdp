@@ -10,7 +10,13 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
-import { seedMedia } from '../src/lib/server/seed-data';
+import {
+	mediaId,
+	seedMedia,
+	seedPages,
+	seedProjects,
+	seedServices
+} from '../src/lib/server/seed-data';
 import { fileStorage, s3Storage, type Storage } from '../src/lib/server/storage-core';
 import { openDb, schema } from './lib/db';
 import { APP_DIR, REPO_DIR, env } from './lib/env';
@@ -39,7 +45,17 @@ const existing = new Set(
 	(await db.select({ id: schema.media.id }).from(schema.media)).map((m) => m.id)
 );
 let uploaded = 0;
+// Only photos the content uses: an unused one would be deleted again by the daily media sweep.
+const used = new Set<string>([
+	...seedServices.flatMap((sv) => (sv.cover ? [mediaId(sv.cover)] : [])),
+	...seedPages.flatMap((p) => (p.hero ? [mediaId(p.hero)] : [])),
+	...((seedPages.find((p) => p.slug === 'home')?.blocks as { about?: { mediaIds?: string[] } })
+		?.about?.mediaIds ?? []),
+	...seedProjects.flatMap((p) => [p.cover_media_id, ...p.photos.map((ph) => ph.media_id)])
+]);
+
 for (const m of seedMedia) {
+	if (!used.has(m.id)) continue;
 	if (existing.has(m.id)) continue;
 	const original = path.join(REPO_DIR, m.original_path);
 	const source = existsSync(original)
@@ -70,6 +86,6 @@ if (uploaded) process.stdout.write('\n');
 
 const linked = await linkSeedMedia(db);
 console.log(
-	`[import-photos] ${uploaded} photos uploaded, ${seedMedia.length - uploaded} already present, ${linked} links set`
+	`[import-photos] ${uploaded} photos uploaded, ${used.size - uploaded} already present, ${linked} links set`
 );
 await close();

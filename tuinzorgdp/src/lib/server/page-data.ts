@@ -35,7 +35,11 @@ export function layoutData(content: SiteContent, site: Site) {
 			areas: content.areas.map((a) => ({ slug: a.slug, name: a.name }))
 		},
 		tiles,
-		areaLabel: primary ? `${primary.name} en omstreken` : null
+		areaLabel: primary
+			? `${primary.name} en omstreken`
+			: content.settings.company.region
+				? `Heel ${content.settings.company.region}`
+				: null
 	};
 }
 
@@ -104,7 +108,7 @@ export function serviceData(content: SiteContent, url: string, slug: string) {
 		faqs,
 		schema: [
 			biz(content, url),
-			serviceSchema(url, service, content.areas),
+			serviceSchema(url, service, content.areas, content.settings.company.region),
 			breadcrumbs(url, [
 				{ name: 'Home', path: '/' },
 				{ name: 'Diensten', path: '/diensten' },

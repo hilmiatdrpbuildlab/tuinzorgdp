@@ -49,9 +49,11 @@ export const actions: Actions = {
 
 		const schemaFor = BLOCK_SCHEMAS[params.slug];
 		if (schemaFor) {
-			const perks = f
-				.list('perk_title')
-				.map((title, i) => ({ title, text: f.list('perk_text')[i] ?? '' }));
+			const perks = f.list('perk_title').map((title, i) => ({
+				title,
+				text: f.list('perk_text')[i] ?? '',
+				icon: f.list('perk_icon')[i] || undefined
+			}));
 			const candidate = {
 				hero: {
 					title: f.str('hero_title'),

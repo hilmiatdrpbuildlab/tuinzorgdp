@@ -15,7 +15,7 @@ The high-fidelity home page is `home-page.html`, built from the same partials as
 - Data: `settings.hero_image_id` (Media), `review_summary` for the chip (hide the chip until there is a score).
 
 ## 03 Waarom TuinZorg DP (Light)
-- Desktop 5 / 7 split. Left: photo collage with mixed ratios, a 3:4 photo (corten edging) and a smaller 4:5 photo (the van) set lower, with a glass badge **Altijd op tijd**. Right: leaf eyebrow pill, `t-h1` **Uw betrouwbare partner voor tuinonderhoud**, the owner's lead in the first person, four perks in a 2 × 2 grid (Ervaring, Betrouwbaar, Persoonlijke aanpak, Duurzaam) and a text link.
+- Desktop 5 / 7 split. Left: photo collage with mixed ratios, a 3:4 photo (corten edging) and a smaller 4:5 photo (the van) set lower. Right: leaf eyebrow pill, `t-h1` **Uw betrouwbare partner voor tuinonderhoud**, the owner's lead in the first person, the reasons in a two-column grid (Ervaring, Betrouwbaar, Persoonlijke aanpak, Duurzaam, Communicatie, Flexibiliteit; the CMS allows up to six, each with its own icon) and a text link.
 - Phone: photos first, side by side; perks in one column.
 - Data: `pages.home.about` text and two media ids; perks are fixed copy from the current site.
 
@@ -23,7 +23,7 @@ The high-fidelity home page is `home-page.html`, built from the same partials as
 - Section header: eyebrow **Onze diensten**, `t-h1` **Alles voor een verzorgde tuin**, lead; right: outline **Alle diensten**.
 - Grid of `ServiceCard`s from `services`. Desktop (1100px+): three columns; the featured service (**Maaien en bosmaaien**) spans the full row in Forest with its 16:9 photo on the left two thirds and the text with a three-line checklist on the right; below it six cards in two rows of three, each with a 4:3 photo, overlapping icon chip, subtitle, title, summary and **Meer info**.
 - Tablet: two columns, featured full width. Phone: one column, featured first.
-- The seven services, in order: Maaien en bosmaaien (featured), Gazononderhoud (verticuteren en graszoden), Onkruidbestrijding, Snoeien, Lamellen plaatsen, Tuinafboording, Materialen invoeren. Onkruidbestrijding shows the empty `MediaSlot` until a photo is uploaded.
+- The eight services, in order: Maaien en bosmaaien (featured), Gazononderhoud (verticuteren en graszoden), Onkruidbestrijding, Snoeien, Aanplanten (borders, hagen en bomen), Lamellen plaatsen, Tuinafboording, Materialen invoeren. A service without a cover photo shows the empty `MediaSlot` until one is uploaded.
 
 ## 05 Realisaties (Light, CMS)
 - Section header **Ons werk in uw buurt**, then a row of filter tags with counts (**Alles**, **Maaien**, **Gazon**, **Snoeien**, **Lamellen**, **Afboording**, **Materialen**).
