@@ -25,8 +25,8 @@
 	],
 	"vars": {
 		"STORAGE_BUCKET": "media",
-		"MAIL_FROM": "noreply@tuinzorgdp.be",
+		"MAIL_FROM": "noreply@tuinzorgdp.com",
 		"MAIL_FROM_NAME": "TuinZorg DP",
-		"MAIL_REPLY_TO": "info@tuinzorgdp.be"
+		"MAIL_REPLY_TO": "info@tuinzorgdp.com"
 	}
 }

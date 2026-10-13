@@ -275,7 +275,7 @@ export const seedPages = [
 		hero: 'bestelwagen-aanhanger.jpg',
 		seo_title: 'Contact en gratis offerte | TuinZorg DP',
 		meta_description:
-			'Vraag uw gratis offerte aan voor tuinonderhoud, of stel uw vraag. Bel +32 469 41 37 30, mail info@tuinzorgdp.be of stuur een WhatsApp.',
+			'Vraag uw gratis offerte aan voor tuinonderhoud, of stel uw vraag. Bel +32 469 41 37 30, mail info@tuinzorgdp.com of stuur een WhatsApp.',
 		blocks: {}
 	},
 	{
@@ -313,7 +313,7 @@ Deze website plaatst geen cookies voor statistieken of reclame. Wij meten bezoek
 
 ## Uw rechten
 
-U kunt altijd vragen welke gegevens wij van u hebben, ze laten verbeteren of laten verwijderen. Stuur daarvoor een e-mail naar info@tuinzorgdp.be.`
+U kunt altijd vragen welke gegevens wij van u hebben, ze laten verbeteren of laten verwijderen. Stuur daarvoor een e-mail naar info@tuinzorgdp.com.`
 	}
 ].map((p) => ({ ...p, id: stableId(`page:${p.slug}`) }));
 
@@ -360,7 +360,7 @@ export const seedFaqs = [
 export const seedSettings = {
 	company: {
 		name: 'TuinZorg DP',
-		email: 'info@tuinzorgdp.be',
+		email: 'info@tuinzorgdp.com',
 		phone: '+32 469 41 37 30',
 		whatsapp: '32469413730'
 	},
@@ -369,7 +369,7 @@ export const seedSettings = {
 	socials: {},
 	google: {},
 	maps_embed_url: null,
-	notify_email: 'info@tuinzorgdp.be'
+	notify_email: 'info@tuinzorgdp.com'
 };
 
 // ---------------------------------------------------------------- draft projects, one per photo group

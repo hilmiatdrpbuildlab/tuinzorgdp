@@ -43,11 +43,11 @@ export async function sendMail(mail: Mail, fetcher: typeof fetch = fetch): Promi
 		headers: { 'api-key': key, 'content-type': 'application/json', accept: 'application/json' },
 		body: JSON.stringify({
 			sender: {
-				email: env('MAIL_FROM') ?? 'noreply@tuinzorgdp.be',
+				email: env('MAIL_FROM') ?? 'noreply@tuinzorgdp.com',
 				name: env('MAIL_FROM_NAME') ?? 'TuinZorg DP'
 			},
 			to: [mail.to],
-			replyTo: mail.replyTo ?? { email: env('MAIL_REPLY_TO') ?? 'info@tuinzorgdp.be' },
+			replyTo: mail.replyTo ?? { email: env('MAIL_REPLY_TO') ?? 'info@tuinzorgdp.com' },
 			subject: mail.subject,
 			textContent: mail.text,
 			htmlContent: textToHtml(mail.text)
@@ -62,7 +62,7 @@ export function loginCodeMail(email: string, code: string): Mail {
 	return {
 		to: { email },
 		subject: `Uw inlogcode voor TuinZorg DP: ${code}`,
-		text: `Uw code om in te loggen op het beheer van tuinzorgdp.be:\n\n${code}\n\nDe code is 5 minuten geldig. Heeft u niet geprobeerd in te loggen? Dan kunt u deze mail negeren; zonder uw wachtwoord kan niemand verder.`
+		text: `Uw code om in te loggen op het beheer van tuinzorgdp.com:\n\n${code}\n\nDe code is 5 minuten geldig. Heeft u niet geprobeerd in te loggen? Dan kunt u deze mail negeren; zonder uw wachtwoord kan niemand verder.`
 	};
 }
 
@@ -92,8 +92,8 @@ export function notificationMail(r: RequestSummary, to: string, adminUrl: string
 			: `Vraag · ${name}`;
 	const lines = [
 		r.kind === 'offerte'
-			? 'Nieuwe offerteaanvraag via tuinzorgdp.be'
-			: 'Nieuwe vraag via tuinzorgdp.be',
+			? 'Nieuwe offerteaanvraag via tuinzorgdp.com'
+			: 'Nieuwe vraag via tuinzorgdp.com',
 		'',
 		`Naam: ${name}`,
 		`E-mail: ${r.email}`,

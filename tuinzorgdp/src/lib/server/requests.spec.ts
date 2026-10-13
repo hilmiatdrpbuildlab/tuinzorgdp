@@ -44,7 +44,7 @@ function deps(over: Partial<SubmitDeps> = {}): SubmitDeps {
 		verifyTurnstile: async () => true,
 		rateLimited: async () => false,
 		adminUrl: 'https://tuinzorgdp.test',
-		notifyFallback: 'info@tuinzorgdp.be',
+		notifyFallback: 'info@tuinzorgdp.com',
 		allowNoJs: true,
 		log: () => {},
 		...over
@@ -110,13 +110,13 @@ describe('processSubmission', () => {
 		expect(r.status).toBe('failed');
 	});
 
-	it('drops spam silently and refuses over the rate limit', async () => {
+	it('drops honeypot spam silently, answers a failed check and refuses over the rate limit', async () => {
 		const spam = quoteForm();
 		spam.set('website', 'http://spam.example');
 		expect((await processSubmission(spam, deps())).status).toBe('spam');
 		expect(
 			(await processSubmission(quoteForm(), deps({ verifyTurnstile: async () => false }))).status
-		).toBe('spam');
+		).toBe('challenge');
 		expect(
 			(await processSubmission(quoteForm(), deps({ rateLimited: async () => true }))).status
 		).toBe('limited');

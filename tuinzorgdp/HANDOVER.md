@@ -1,22 +1,22 @@
-# Handover: running tuinzorgdp.be
+# Handover: running tuinzorgdp.com
 
 For DRP BuildLab. How to set the site up, publish, reset the CMS password, restore a backup and rotate the unlock key. Every account (GitHub, Cloudflare, Neon, Brevo, Google Cloud) is held by the agency, not by one developer.
 
 ## 0. Current deployment (5 October 2026)
 
-| What                         | Where                                                                                                                                          |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| Site (test, noindex)         | https://tuinzorgdp-website.goosebumpsevents.workers.dev                                                                                        |
-| Worker                       | `tuinzorgdp-website`, Cloudflare account Info@drpbuildlab.com (crons 03:00 and 04:30 UTC)                                                      |
-| Neon project                 | `tuinzorgdp` (`wispy-night-74195499`), org of hilmi.al-muhtade-billah@drpbuildlab.com, Frankfurt, Postgres 17, 0.25 CU                         |
-| Branches                     | `main` (production), `dev` (copy of main)                                                                                                      |
-| Bucket                       | `media` on `main`, private; credentials `tz-app-rw` (Worker) and `tz-build-ro` (build)                                                         |
-| Turnstile                    | widget "tuinzorgdp forms" (managed) for the workers.dev host, tuinzorgdp.be and localhost                                                      |
-| Local copies of every secret | `tuinzorgdp/.local/secrets/` on the machine that did the setup (git-ignored). Move them to the agency's password manager and delete the folder |
+| What                         | Where                                                                                                                                                     |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Site (test, noindex)         | https://tuinzorgdp-website.goosebumpsevents.workers.dev                                                                                                   |
+| Worker                       | `tuinzorgdp-website`, Cloudflare account Info@drpbuildlab.com (crons 03:00 and 04:30 UTC)                                                                 |
+| Neon project                 | `tuinzorgdp` (`wispy-night-74195499`), org of hilmi.al-muhtade-billah@drpbuildlab.com, Frankfurt, Postgres 17, 0.25 CU                                    |
+| Branches                     | `main` (production), `dev` (copy of main)                                                                                                                 |
+| Bucket                       | `media` on `main`, private; credentials `tz-app-rw` (Worker) and `tz-build-ro` (build)                                                                    |
+| Turnstile                    | widget "tuinzorgdp forms" (managed) for the workers.dev host, tuinzorgdp.be and localhost; add tuinzorgdp.com and goosebumpsevents.workers.dev (previews) |
+| Local copies of every secret | `tuinzorgdp/.local/secrets/` on the machine that did the setup (git-ignored). Move them to the agency's password manager and delete the folder            |
 
-CMS account: `info@tuinzorgdp.be`, created with `--no-code`, so it signs in with the password only (behind the unlock link) because no mail service is connected. **Switch the e-mailed code back on as soon as Brevo works:** run `npm run seed:account` for the same address without `--no-code` (this also sets a new password).
+CMS account: `info@tuinzorgdp.com`, created with `--no-code`, so it signs in with the password only (behind the unlock link) because no mail service is connected. **Switch the e-mailed code back on as soon as Brevo works:** run `npm run seed:account` for the same address without `--no-code` (this also sets a new password).
 
-Not done yet: Brevo (no API key, domain not authenticated, so notification mails and confirmations are not sent; requests are still stored and shown under Aanvragen), Workers Builds and its deploy hook (so **Publiceren** reports _Mislukt_), Cloudflare Web Analytics, R2 backups and the GitHub secrets. The code is not on GitHub yet; the Worker was deployed from a local build with `npx wrangler deploy`.
+Not done yet: Brevo domain authentication for tuinzorgdp.com (the API key is set; until the domain is authenticated, notification mails and confirmations are refused, while requests are still stored and shown under Aanvragen), Cloudflare Web Analytics, R2 backups and the GitHub secrets. The code is not on GitHub yet; the Worker was deployed from a local build with `npx wrangler deploy`.
 
 ## 1. First setup (phase 0)
 
@@ -44,7 +44,7 @@ Do these once, in this order. Each ends with a check.
 5. **GitHub.** Branch protection on `main` requiring the `CI` workflow. Repository secrets for the backups: `BACKUP_DATABASE_URL`, `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `NEON_STORAGE_ENDPOINT`, `NEON_STORAGE_READ_KEY_ID`, `NEON_STORAGE_READ_SECRET`.
 6. **R2.** Buckets `tz-backups` (lifecycle rule: delete after 30 days) and `tz-media-mirror`, with one token limited to these two buckets.
    Check: run `Nightly database backup` and `Weekly media mirror` by hand (Actions, Run workflow); a dump and the photos appear in R2.
-7. **Brevo.** Authenticate `tuinzorgdp.be` (DKIM and verification records at whoever holds the DNS; check the existing SPF and DMARC first). Until Brevo shows it as authenticated, mail from `noreply@tuinzorgdp.be` may be rejected.
+7. **Brevo.** Authenticate `tuinzorgdp.com` in Brevo (Senders, Domains and Dedicated IPs). Its DNS is on Cloudflare; its mailboxes are Microsoft 365, so leave the MX and the existing SPF (`include:spf.protection.outlook.com`) alone and only add Brevo's verification TXT, the two DKIM records and a DMARC record. Until Brevo shows the domain as authenticated, mail from `noreply@tuinzorgdp.com` is refused.
 
 Local values go in `.env` (build and scripts) and `.dev.vars` (wrangler dev); see `.env.example`.
 
@@ -91,11 +91,11 @@ Rehearse this once on the `dev` branch (phase 6) and note the date here.
 
 ## 6. Moving the domain (separate task)
 
-When tuinzorgdp.be moves off WordPress: add the custom domain to the Worker, set `PUBLIC_SITE_URL`, `BETTER_AUTH_URL` and `SITE_INDEXABLE=true`, add the domain to the Turnstile widget, publish, then check `/robots.txt` allows crawling and the old WordPress URLs redirect (`_redirects`, managed in SEO & redirects). Add `preload` to the HSTS header in `_headers` only after the domain has been live for a while.
+The site is served at tuinzorgdp.com (the old WordPress site stays on tuinzorgdp.be). To launch on tuinzorgdp.com: set `PUBLIC_SITE_URL`, `BETTER_AUTH_URL` and `SITE_INDEXABLE=true`, add the domain to the Turnstile widget, publish, then check `/robots.txt` allows crawling and the old WordPress URLs redirect (`_redirects`, managed in SEO & redirects). Add `preload` to the HSTS header in `_headers` only after the domain has been live for a while.
 
 ## 7. Regular checks
 
 - `npm run e2e:admin` against a preview with throwaway rows after larger changes.
 - `npm run build && npm run responsive` before handing over design changes.
 - Neon console: compute hours and egress (each publish downloads the photos in use).
-- Brevo: bounces on `noreply@tuinzorgdp.be`.
+- Brevo: bounces on `noreply@tuinzorgdp.com`.

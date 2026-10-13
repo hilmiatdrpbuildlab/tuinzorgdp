@@ -27,7 +27,6 @@
 	import { onMount } from 'svelte';
 
 	/** Cloudflare Turnstile in invisible "managed" mode; it only shows itself when it needs to challenge. */
-	// eslint-disable-next-line no-useless-assignment -- token is bound by the parent form
 	let { siteKey, token = $bindable('') }: { siteKey: string; token?: string } = $props();
 
 	let box: HTMLDivElement | undefined = $state();
@@ -37,6 +36,13 @@
 	export function reset() {
 		token = '';
 		if (api && widgetId) api.reset(widgetId);
+	}
+
+	/** The token, waiting up to `ms` for the check to finish; '' when it never did. */
+	export async function waitForToken(ms = 8000): Promise<string> {
+		const until = Date.now() + ms;
+		while (!token && Date.now() < until) await new Promise((r) => setTimeout(r, 200));
+		return token;
 	}
 
 	onMount(() => {

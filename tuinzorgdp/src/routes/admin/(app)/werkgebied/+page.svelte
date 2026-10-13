@@ -20,7 +20,7 @@
 		<div class="tz-alert__text">{form.message}</div>
 	</div>{/if}
 <p class="adm-muted">
-	Elke gemeente krijgt een eigen pagina op tuinzorgdp.be/tuinonderhoud. Die verschijnt pas met een
+	Elke gemeente krijgt een eigen pagina op tuinzorgdp.com/tuinonderhoud. Die verschijnt pas met een
 	intro van minstens {LIMITS.areaIntroWords} woorden. Sleep om de volgorde te wijzigen.
 </p>
 <SortableList items={data.items} base="/admin/werkgebied" empty="Nog geen gemeenten." />

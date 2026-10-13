@@ -147,7 +147,9 @@
 			fd.set('kind', 'offerte');
 			fd.set('js', '1');
 			fd.set('website', '');
-			if (token) fd.set('cf-turnstile-response', token);
+			// The check usually finishes while the visitor types; give it a moment if not.
+			const checked = token || (await turnstile?.waitForToken()) || '';
+			if (checked) fd.set('cf-turnstile-response', checked);
 			for (const [i, file] of files.entries()) {
 				const { blob } = await scaleImage(file, 2000, 0.8);
 				fd.append('fotos', blob, `foto-${i + 1}.jpg`);

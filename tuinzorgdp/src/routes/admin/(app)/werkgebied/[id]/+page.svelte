@@ -97,7 +97,7 @@
 			id="f-slug"
 			bind:value={slug}
 			error={errors.slug}
-			hint={`tuinzorgdp.be/tuinonderhoud/${slug}. Wijzigen maakt automatisch een doorverwijzing.`}
+			hint={`tuinzorgdp.com/tuinonderhoud/${slug}. Wijzigen maakt automatisch een doorverwijzing.`}
 		/>
 	</details>
 	<SeoPanel

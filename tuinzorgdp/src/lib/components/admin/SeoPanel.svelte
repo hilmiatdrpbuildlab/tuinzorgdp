@@ -36,7 +36,7 @@
 			hint="Wat Google onder de titel toont. Leeg laten = de samenvatting."
 		/>
 		<div class="adm-serp" aria-label="Voorbeeld in Google">
-			<span class="adm-serp__url">tuinzorgdp.be{path}</span>
+			<span class="adm-serp__url">tuinzorgdp.com{path}</span>
 			<span class="adm-serp__title">{seoTitle || fallbackTitle}</span>
 			<span class="adm-serp__desc">{metaDescription || '…'}</span>
 		</div>

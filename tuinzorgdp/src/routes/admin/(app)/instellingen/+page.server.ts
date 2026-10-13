@@ -46,7 +46,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 				writeReviewUrl: s?.google.writeReviewUrl
 			},
 			maps_embed_url: s?.maps_embed_url ?? null,
-			notify_email: s?.notify_email ?? 'info@tuinzorgdp.be'
+			notify_email: s?.notify_email ?? 'info@tuinzorgdp.com'
 		},
 		days: DAYS
 	};
@@ -145,7 +145,7 @@ export const actions: Actions = {
 
 		const notify_email = f.str('notify_email');
 		if (!EMAIL.test(notify_email))
-			errors.notify_email = 'Vul een geldig e-mailadres in, bijvoorbeeld info@tuinzorgdp.be.';
+			errors.notify_email = 'Vul een geldig e-mailadres in, bijvoorbeeld info@tuinzorgdp.com.';
 
 		if (Object.keys(errors).length) return fail(400, { errors, message: 'Controleer de velden.' });
 

@@ -5,9 +5,9 @@ interface __BaseEnv_Env {
 	SUBMIT_LIMITER: RateLimit;
 	ASSETS: Fetcher;
 	STORAGE_BUCKET: "media";
-	MAIL_FROM: "noreply@tuinzorgdp.be";
+	MAIL_FROM: "noreply@tuinzorgdp.com";
 	MAIL_FROM_NAME: "TuinZorg DP";
-	MAIL_REPLY_TO: "info@tuinzorgdp.be";
+	MAIL_REPLY_TO: "info@tuinzorgdp.com";
 }
 declare namespace Cloudflare {
 	interface Env extends __BaseEnv_Env {}

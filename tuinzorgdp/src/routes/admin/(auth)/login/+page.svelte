@@ -10,7 +10,7 @@
 <svelte:head><title>Aanmelden | TuinZorg DP beheer</title></svelte:head>
 
 <h1 class="t-h3">Aanmelden</h1>
-<p class="adm-muted">Beheer van tuinzorgdp.be.</p>
+<p class="adm-muted">Beheer van tuinzorgdp.com.</p>
 
 {#if form?.message}
 	<div class="tz-alert tz-alert--danger" role="alert">

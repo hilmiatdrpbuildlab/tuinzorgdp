@@ -129,7 +129,7 @@
 			name="slug"
 			id="f-slug"
 			bind:value={slug}
-			hint={`tuinzorgdp.be/diensten/${slug}. Wijzigen maakt automatisch een doorverwijzing.`}
+			hint={`tuinzorgdp.com/diensten/${slug}. Wijzigen maakt automatisch een doorverwijzing.`}
 		/>
 	</details>
 	<SeoPanel

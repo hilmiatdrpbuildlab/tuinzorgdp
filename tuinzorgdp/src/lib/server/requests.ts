@@ -36,6 +36,7 @@ export type SubmitDeps = {
 export type SubmitResult =
 	| { status: 'ok'; id: string; mailed: boolean; stored: boolean }
 	| { status: 'spam' }
+	| { status: 'challenge' }
 	| { status: 'invalid'; errors: FieldErrors }
 	| { status: 'limited' }
 	| { status: 'failed' };
@@ -50,13 +51,16 @@ export async function processSubmission(form: FormData, deps: SubmitDeps): Promi
 	const log = deps.log ?? ((m: string, e?: unknown) => console.error(m, e ?? ''));
 	const kind = form.get('kind') === 'vraag' ? 'vraag' : 'offerte';
 
-	// 1. Spam: honeypot, Turnstile, rate limit.
+	// 1. Spam: the honeypot is dropped silently. A failed Turnstile check is answered with a
+	// message, never a fake "thank you": a real visitor whose check failed must know to retry or call.
 	if (String(form.get('website') ?? '').trim() !== '') return { status: 'spam' };
 	const js = form.get('js') === '1';
 	const token = form.get('cf-turnstile-response');
 	if (js || token || !deps.allowNoJs) {
-		if (!(await deps.verifyTurnstile(typeof token === 'string' ? token : null)))
-			return { status: 'spam' };
+		if (!(await deps.verifyTurnstile(typeof token === 'string' ? token : null))) {
+			log(`[submit] Turnstile check failed (${token ? 'token rejected' : 'no token'})`);
+			return { status: 'challenge' };
+		}
 	}
 	if (await deps.rateLimited()) return { status: 'limited' };
 

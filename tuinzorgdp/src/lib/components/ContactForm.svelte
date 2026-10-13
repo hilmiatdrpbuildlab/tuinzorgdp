@@ -68,7 +68,9 @@
 			fd.set('kind', 'vraag');
 			fd.set('js', '1');
 			fd.set('website', '');
-			if (token) fd.set('cf-turnstile-response', token);
+			// The check usually finishes while the visitor types; give it a moment if not.
+			const checked = token || (await turnstile?.waitForToken()) || '';
+			if (checked) fd.set('cf-turnstile-response', checked);
 			const res = await fetch('/api/submit', {
 				method: 'POST',
 				body: fd,

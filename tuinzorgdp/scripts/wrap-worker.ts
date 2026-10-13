@@ -33,7 +33,7 @@ export default {
 	async scheduled(controller, env, ctx) {
 		const route = ROUTES[controller.cron];
 		if (!route || !env.CRON_SECRET) return;
-		const origin = (env.PUBLIC_SITE_URL || 'https://tuinzorgdp.be').replace(/\\/$/, '');
+		const origin = (env.PUBLIC_SITE_URL || 'https://tuinzorgdp.com').replace(/\\/$/, '');
 		const request = new Request(origin + route, { method: 'POST', headers: { 'x-cron-secret': env.CRON_SECRET } });
 		ctx.waitUntil(app.fetch(request, env, ctx).then((r) => console.log('cron', controller.cron, r.status)));
 	}

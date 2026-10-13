@@ -67,7 +67,7 @@ export const POST: RequestHandler = async (event) => {
 			}
 		},
 		adminUrl: siteUrl(),
-		notifyFallback: env('MAIL_REPLY_TO') ?? 'info@tuinzorgdp.be',
+		notifyFallback: env('MAIL_REPLY_TO') ?? 'info@tuinzorgdp.com',
 		allowNoJs: env('ALLOW_NOJS_SUBMIT') !== 'false'
 	});
 
@@ -77,6 +77,16 @@ export const POST: RequestHandler = async (event) => {
 		case 'spam':
 			// Bots get the same answer as people, so they learn nothing.
 			return answer(200, { ok: true }, '/bedankt');
+		case 'challenge':
+			return answer(
+				403,
+				{
+					ok: false,
+					message:
+						'De beveiligingscontrole is niet gelukt. Probeer het opnieuw, of bel ons op +32 469 41 37 30.'
+				},
+				'/formulier-fout'
+			);
 		case 'invalid':
 			return answer(422, { ok: false, errors: result.errors }, '/formulier-fout');
 		case 'limited':
