@@ -66,7 +66,8 @@ export const POST: RequestHandler = async (event) => {
 				return false; // Neon down: the edge binding still applies.
 			}
 		},
-		adminUrl: siteUrl(),
+		// The CMS runs where Better Auth runs, which can differ from the public site.
+		adminUrl: (env('BETTER_AUTH_URL') ?? siteUrl()).replace(/\/$/, ''),
 		notifyFallback: env('MAIL_REPLY_TO') ?? 'info@tuinzorgdp.com',
 		allowNoJs: env('ALLOW_NOJS_SUBMIT') !== 'false'
 	});

@@ -4,15 +4,15 @@ For DRP BuildLab. How to set the site up, publish, reset the CMS password, resto
 
 ## 0. Current deployment (5 October 2026)
 
-| What                         | Where                                                                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Site (test, noindex)         | https://tuinzorgdp-website.goosebumpsevents.workers.dev                                                                                                   |
-| Worker                       | `tuinzorgdp-website`, Cloudflare account Info@drpbuildlab.com (crons 03:00 and 04:30 UTC)                                                                 |
-| Neon project                 | `tuinzorgdp` (`wispy-night-74195499`), org of hilmi.al-muhtade-billah@drpbuildlab.com, Frankfurt, Postgres 17, 0.25 CU                                    |
-| Branches                     | `main` (production), `dev` (copy of main)                                                                                                                 |
-| Bucket                       | `media` on `main`, private; credentials `tz-app-rw` (Worker) and `tz-build-ro` (build)                                                                    |
-| Turnstile                    | widget "tuinzorgdp forms" (managed) for the workers.dev host, tuinzorgdp.be and localhost; add tuinzorgdp.com and goosebumpsevents.workers.dev (previews) |
-| Local copies of every secret | `tuinzorgdp/.local/secrets/` on the machine that did the setup (git-ignored). Move them to the agency's password manager and delete the folder            |
+| What                         | Where                                                                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Site (test, noindex)         | https://tuinzorgdp.com (`PUBLIC_SITE_URL`: sitemap, canonical links); the CMS on https://tuinzorgdp-website.goosebumpsevents.workers.dev (`BETTER_AUTH_URL`) |
+| Worker                       | `tuinzorgdp-website`, Cloudflare account Info@drpbuildlab.com (crons 03:00 and 04:30 UTC)                                                                    |
+| Neon project                 | `tuinzorgdp` (`wispy-night-74195499`), org of hilmi.al-muhtade-billah@drpbuildlab.com, Frankfurt, Postgres 17, 0.25 CU                                       |
+| Branches                     | `main` (production), `dev` (copy of main)                                                                                                                    |
+| Bucket                       | `media` on `main`, private; credentials `tz-app-rw` (Worker) and `tz-build-ro` (build)                                                                       |
+| Turnstile                    | widget "tuinzorgdp forms" (managed) for the workers.dev host, tuinzorgdp.be and localhost; add tuinzorgdp.com and goosebumpsevents.workers.dev (previews)    |
+| Local copies of every secret | `tuinzorgdp/.local/secrets/` on the machine that did the setup (git-ignored). Move them to the agency's password manager and delete the folder               |
 
 CMS account: `info@tuinzorgdp.com`, created with `--no-code`, so it signs in with the password only (behind the unlock link) because no mail service is connected. **Switch the e-mailed code back on as soon as Brevo works:** run `npm run seed:account` for the same address without `--no-code` (this also sets a new password).
 
