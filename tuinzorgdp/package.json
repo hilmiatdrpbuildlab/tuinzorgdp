@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "npm run sync:ds -- --check && npm run build:files && npm run build:images && vite build && npm run build:wrap && npm run verify",
-		"build:files": "tsx scripts/write-build-files.ts",
+		"build:files": "tsx scripts/write-build-files.ts && tsx scripts/build-icons.ts",
 		"build:images": "tsx scripts/build-images.ts",
 		"build:wrap": "tsx scripts/wrap-worker.ts",
 		"verify": "tsx scripts/verify-build.ts",

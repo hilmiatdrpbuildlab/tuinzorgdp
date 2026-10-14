@@ -11,6 +11,13 @@ node_modules
 # Generated at build time (scripts/build-images.ts, scripts/write-build-files.ts)
 /static/media/
 /static/build-info.json
+# Rendered from static/favicon.svg by scripts/build-icons.ts
+/static/favicon.ico
+/static/favicon-96.png
+/static/icon-192.png
+/static/icon-512.png
+/static/apple-touch-icon.png
+/static/site.webmanifest
 /_redirects
 /src/lib/server/seed.generated.json
 
