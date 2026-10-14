@@ -10,7 +10,8 @@ import {
 	breadcrumbs,
 	faqPage,
 	imageGallery,
-	service as serviceSchema
+	service as serviceSchema,
+	website
 } from '$lib/schema-org';
 import { ogImage, seoDescription, seoTitle } from '$lib/seo';
 
@@ -21,6 +22,9 @@ export type Site = {
 	turnstileSiteKey: string | null;
 };
 
+/** The home hero photo: the share image and business photo for pages without their own. */
+const defaultImage = (c: SiteContent) => ogImage(c.pages.home?.hero);
+
 export function layoutData(content: SiteContent, site: Site) {
 	const primary = content.areas.find((a) => a.isPrimary) ?? content.areas[0];
 	const tiles: Tile[] = [
@@ -28,7 +32,7 @@ export function layoutData(content: SiteContent, site: Site) {
 		{ value: 'anders', label: 'Anders', icon: 'sprout' }
 	];
 	return {
-		site,
+		site: { ...site, defaultImage: defaultImage(content) },
 		settings: content.settings,
 		footer: {
 			services: content.services.map((s) => ({ slug: s.slug, title: s.title })),
@@ -43,7 +47,11 @@ export function layoutData(content: SiteContent, site: Site) {
 	};
 }
 
-const biz = (c: SiteContent, url: string) => business(url, c.settings, c.areas, c.services);
+const biz = (c: SiteContent, url: string) =>
+	business(url, c.settings, c.areas, c.services, {
+		image: defaultImage(c),
+		description: c.home.hero.lead
+	});
 
 export function homeData(content: SiteContent, url: string) {
 	const page = content.pages.home;
@@ -61,7 +69,11 @@ export function homeData(content: SiteContent, url: string) {
 		social: content.social,
 		faqs,
 		contactMedia: content.contactMedia,
-		schema: [biz(content, url), ...(faqs.length ? [faqPage(faqs)] : [])]
+		schema: [
+			biz(content, url),
+			website(url, content.settings.company.name),
+			...(faqs.length ? [faqPage(faqs)] : [])
+		]
 	};
 }
 

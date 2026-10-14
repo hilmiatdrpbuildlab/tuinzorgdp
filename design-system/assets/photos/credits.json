@@ -730,5 +730,41 @@
    1200
   ],
   "note": ""
+ },
+ {
+  "path": "assets/photos/client/onkruid-stoepborder-voor.jpg",
+  "alt": "Border langs de stoep vol onkruid en hoog opgeschoten gras, voor de onderhoudsbeurt",
+  "category": "Onkruidbestrijding",
+  "source": "client",
+  "original": "assets/Onkruidbestrijding/onkruid-stoepborder-voor.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "Before photo."
+ },
+ {
+  "path": "assets/photos/client/onkruid-stoepborder-na.jpg",
+  "alt": "Dezelfde strook langs de stoep, volledig vrij van onkruid",
+  "category": "Onkruidbestrijding",
+  "source": "client",
+  "original": "assets/Onkruidbestrijding/onkruid-stoepborder-na.jpg",
+  "size": [
+   900,
+   1200
+  ],
+  "note": "After photo."
+ },
+ {
+  "path": "assets/photos/client/onkruid-zijpad-schors-voor-na.jpg",
+  "alt": "Zijpad naast een woning: rechts vol onkruid en afval, links onkruidvrij en afgedekt met houtschors",
+  "category": "Onkruidbestrijding",
+  "source": "client",
+  "original": "assets/Onkruidbestrijding/onkruid-zijpad-schors-voor-na.jpg",
+  "size": [
+   675,
+   1200
+  ],
+  "note": "Collage, after left and before right."
  }
 ]

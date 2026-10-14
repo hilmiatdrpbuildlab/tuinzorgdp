@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { llmsTxt } from './llms';
+import { llmsFullTxt, llmsTxt } from './llms';
 import { buildContent, seedRaw } from './server/content';
 
 describe('llms.txt', () => {
@@ -19,5 +19,25 @@ describe('llms.txt', () => {
 		expect(txt).not.toContain('Openingsuren');
 		expect(txt).not.toContain('Werkgebied:');
 		expect(txt).not.toContain('In welke gemeenten');
+	});
+});
+
+describe('llms-full.txt', () => {
+	const raw = seedRaw();
+	const content = buildContent(raw);
+	const txt = llmsFullTxt(content, 'https://tuinzorgdp.com');
+
+	it('has the same header and every service written out as plain text', () => {
+		expect(txt.startsWith('# TuinZorg DP\n\n> ')).toBe(true);
+		expect(txt).toContain('### Snoeien');
+		expect(txt).toContain('Pagina: https://tuinzorgdp.com/diensten/snoeien');
+		expect(txt).not.toMatch(/<[a-z/][^>]*>/);
+		for (const sv of content.services) expect(txt).toContain(sv.summary.trim());
+	});
+
+	it('is linked from llms.txt', () => {
+		expect(llmsTxt(content, 'https://tuinzorgdp.com')).toContain(
+			'https://tuinzorgdp.com/llms-full.txt'
+		);
 	});
 });

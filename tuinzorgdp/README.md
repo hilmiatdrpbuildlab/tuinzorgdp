@@ -36,7 +36,7 @@ Without `DATABASE_URL_BUILD`, `npm run build` builds from the seed content (`src
 
 ## SEO and GEO
 
-SEO is edited in the CMS (title, description and slug per page, SEO & redirects, Werkgebied landing pages, company details in Instellingen); the sitemap, `robots.txt`, canonical URLs and JSON-LD are generated at build. For generative search engines (GEO), `/llms.txt` ([llmstxt.org](https://llmstxt.org)) is generated at every build from the published content by `src/lib/llms.ts`: services, realisaties, werkgebied, FAQ and contact details, so it needs no separate editing. Until `SITE_INDEXABLE=true`, `robots.txt` blocks every crawler, AI crawlers included.
+SEO is edited in the CMS (title, description and slug per page, SEO & redirects, Werkgebied landing pages, company details in Instellingen); the sitemap, `robots.txt`, canonical URLs and JSON-LD are generated at build. For generative search engines (GEO), `/llms.txt` ([llmstxt.org](https://llmstxt.org)) is generated at every build from the published content by `src/lib/llms.ts`: services, realisaties, werkgebied, FAQ and contact details, so it needs no separate editing; `/llms-full.txt` holds the full text of every service, realisatie, werkgebied page and FAQ answer. `robots.txt` names the AI search and assistant crawlers (ChatGPT, Claude, Perplexity, Gemini, Apple, Bing) and allows them, the sitemap carries `lastmod` from each row's last edit, and the JSON-LD links the business, the website and each service by `@id`, with the home hero photo as the business image and default share image. Until `SITE_INDEXABLE=true`, `robots.txt` blocks every crawler, AI crawlers included.
 
 ## Layout
 

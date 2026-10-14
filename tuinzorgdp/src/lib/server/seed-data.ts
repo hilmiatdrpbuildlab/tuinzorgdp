@@ -381,6 +381,8 @@ const GROUPS: {
 	service: string;
 	summary: string;
 	cover?: string;
+	/** Only these photos of the folder, when one folder holds more than one job. */
+	files?: string[];
 }[] = [
 	{
 		folder: 'maaien',
@@ -402,7 +404,22 @@ const GROUPS: {
 		title: 'Voortuin onkruidvrij gemaakt',
 		service: 'onkruidbestrijding',
 		summary: 'Een voortuin vol onkruid tussen het grind en de klinkers, weer helemaal netjes.',
-		cover: 'onkruid-voortuin-na.jpg'
+		cover: 'onkruid-voortuin-na.jpg',
+		files: ['onkruid-voortuin-voor.jpg', 'onkruid-voortuin-na.jpg']
+	},
+	{
+		folder: 'Onkruidbestrijding',
+		slug: 'border-en-zijpad-onkruidvrij-gemaakt',
+		title: 'Border en zijpad onkruidvrij gemaakt',
+		service: 'onkruidbestrijding',
+		summary:
+			'Een border langs de stoep en een smal zijpad vol onkruid, weer netjes. Het zijpad kreeg een laag houtschors tegen nieuw onkruid.',
+		cover: 'onkruid-stoepborder-na.jpg',
+		files: [
+			'onkruid-stoepborder-voor.jpg',
+			'onkruid-stoepborder-na.jpg',
+			'onkruid-zijpad-schors-voor-na.jpg'
+		]
 	},
 	{
 		folder: 'Snoeien',
@@ -467,6 +484,8 @@ const ROLE_HINTS: Record<string, 'before' | 'after' | 'process'> = {
 	'verticuteren-kruiwagen.jpg': 'process',
 	'onkruid-voortuin-voor.jpg': 'before',
 	'onkruid-voortuin-na.jpg': 'after',
+	'onkruid-stoepborder-voor.jpg': 'before',
+	'onkruid-stoepborder-na.jpg': 'after',
 	'afboording-staal-kruidenborder.jpg': 'process',
 	'afboording-staal-haag.jpg': 'process',
 	'afboording-staal-border-recht.jpg': 'process'
@@ -485,7 +504,10 @@ const NOT_IN_PROJECTS = new Set([
 
 export const seedProjects = GROUPS.map((g, i) => {
 	const photos = seedMedia.filter(
-		(m) => m.original_path.split('/')[1] === g.folder && !NOT_IN_PROJECTS.has(m.file_name)
+		(m) =>
+			m.original_path.split('/')[1] === g.folder &&
+			!NOT_IN_PROJECTS.has(m.file_name) &&
+			(!g.files || g.files.includes(m.file_name))
 	);
 	const coverFile =
 		g.cover ??

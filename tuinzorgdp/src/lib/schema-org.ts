@@ -1,6 +1,7 @@
 /** JSON-LD for local SEO (docs/cms-plan/06-public-site.md). The NAP comes from settings only. */
 import type { Area, Faq, Project, Service, SiteSettings } from '$lib/content/types';
 import { hoursDays } from '$lib/hours-schema';
+import { ogImage as ogImageFor } from '$lib/seo';
 
 /** The published municipalities, or the region when none is published yet. */
 function served(areas: Area[], region: string | undefined) {
@@ -10,11 +11,15 @@ function served(areas: Area[], region: string | undefined) {
 
 type Json = Record<string, unknown>;
 
+const absolute = (siteUrl: string, path: string | null | undefined) =>
+	path ? (path.startsWith('http') ? path : `${siteUrl}${path}`) : null;
+
 export function business(
 	siteUrl: string,
 	s: SiteSettings,
 	areas: Area[],
-	services: Service[]
+	services: Service[],
+	extra: { image?: string | null; description?: string | null } = {}
 ): Json {
 	const c = s.company;
 	const showStreet = !!c.street && c.showStreet !== false;
@@ -31,6 +36,7 @@ export function business(
 			: undefined;
 	const sameAs = [s.google.profileUrl, s.socials.facebook, s.socials.instagram].filter(Boolean);
 	const days = hoursDays(s.hours);
+	const photo = absolute(siteUrl, extra.image);
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'LandscapingBusiness',
@@ -39,7 +45,10 @@ export function business(
 		slogan: 'Tuinonderhoud met passie',
 		url: `${siteUrl}/`,
 		logo: `${siteUrl}/logo/tz-logo.svg`,
-		image: `${siteUrl}/logo/tz-mark.svg`,
+		image: photo ? [photo, `${siteUrl}/logo/tz-mark.svg`] : `${siteUrl}/logo/tz-mark.svg`,
+		...(extra.description ? { description: extra.description } : {}),
+		// What the business is an authority on, for answer engines matching a question to a provider.
+		knowsAbout: services.map((sv) => sv.title),
 		...(c.phone ? { telephone: c.phone.replace(/\s/g, '') } : {}),
 		...(c.email ? { email: c.email } : {}),
 		...(address ? { address } : {}),
@@ -82,14 +91,30 @@ export function business(
 }
 
 export function service(siteUrl: string, sv: Service, areas: Area[], region?: string): Json {
+	const image = sv.cover ? absolute(siteUrl, ogImageFor(sv.cover)) : null;
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
 		name: sv.title,
+		serviceType: sv.title,
 		description: sv.summary,
 		url: `${siteUrl}/diensten/${sv.slug}`,
+		...(image ? { image } : {}),
 		provider: { '@id': `${siteUrl}/#business` },
 		...served(areas, region)
+	};
+}
+
+/** The site itself, published by the business; lets answer engines tie pages to the business. */
+export function website(siteUrl: string, name: string): Json {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		'@id': `${siteUrl}/#website`,
+		name,
+		url: `${siteUrl}/`,
+		inLanguage: 'nl-BE',
+		publisher: { '@id': `${siteUrl}/#business` }
 	};
 }
 

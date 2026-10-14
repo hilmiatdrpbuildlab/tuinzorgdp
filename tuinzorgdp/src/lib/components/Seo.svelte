@@ -17,7 +17,12 @@
 	} = $props();
 
 	const site = $derived(
-		page.data.site as { url: string; testSite: boolean; analyticsToken: string | null }
+		page.data.site as {
+			url: string;
+			testSite: boolean;
+			analyticsToken: string | null;
+			defaultImage?: string | null;
+		}
 	);
 	const canonical = $derived(
 		`${site.url}${page.url.pathname === '/' ? '/' : page.url.pathname.replace(/\/$/, '')}`
@@ -27,7 +32,9 @@
 			? image.startsWith('http')
 				? image
 				: `${site.url}${image}`
-			: `${site.url}/logo/tz-mark.svg`
+			: site.defaultImage
+				? `${site.url}${site.defaultImage}`
+				: `${site.url}/logo/tz-mark.svg`
 	);
 	// Built here (not in the markup) so the closing tag is never parsed as the end of this block.
 	const ldTags = $derived(

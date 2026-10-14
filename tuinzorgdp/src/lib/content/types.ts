@@ -30,6 +30,8 @@ export type Service = {
 	featured: boolean;
 	seoTitle: string | null;
 	metaDescription: string | null;
+	/** YYYY-MM-DD of the last edit, for the sitemap. */
+	updatedOn: string | null;
 };
 
 export type PhotoRole = 'before' | 'after' | 'process' | 'result';
@@ -55,6 +57,7 @@ export type Area = {
 	introText: string;
 	seoTitle: string | null;
 	metaDescription: string | null;
+	updatedOn: string | null;
 };
 
 export type Project = {
@@ -71,6 +74,7 @@ export type Project = {
 	photos: { media: Media; role: PhotoRole }[];
 	seoTitle: string | null;
 	metaDescription: string | null;
+	updatedOn: string | null;
 };
 
 export type Review = {

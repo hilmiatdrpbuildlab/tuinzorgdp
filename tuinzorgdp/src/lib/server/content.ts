@@ -195,6 +195,10 @@ export function seedRaw(): RawContent {
 
 type Options = { drafts?: boolean; mediaSrc?: (row: Row<'media'>) => string | undefined };
 
+/** YYYY-MM-DD of a row's last edit, for the sitemap. */
+const day = (d: Date | string | null | undefined) =>
+	d ? new Date(d).toISOString().slice(0, 10) : null;
+
 export function buildContent(raw: RawContent, opts: Options = {}): SiteContent {
 	const drafts = !!opts.drafts;
 	const mediaById = new Map(raw.media.map((m) => [m.id, m]));
@@ -229,7 +233,8 @@ export function buildContent(raw: RawContent, opts: Options = {}): SiteContent {
 			cover: toMedia(s.cover_media_id),
 			featured: s.is_featured,
 			seoTitle: s.seo_title,
-			metaDescription: s.meta_description
+			metaDescription: s.meta_description,
+			updatedOn: day(s.updated_at)
 		}));
 	const serviceById = new Map(services.map((s) => [s.id, s]));
 
@@ -244,7 +249,8 @@ export function buildContent(raw: RawContent, opts: Options = {}): SiteContent {
 			introHtml: renderMarkdown(a.intro),
 			introText: plainText(a.intro),
 			seoTitle: a.seo_title,
-			metaDescription: a.meta_description
+			metaDescription: a.meta_description,
+			updatedOn: day(a.updated_at)
 		}));
 	const areaById = new Map(areas.map((a) => [a.id, a]));
 
@@ -283,7 +289,8 @@ export function buildContent(raw: RawContent, opts: Options = {}): SiteContent {
 					.map((pm) => ({ media: toMedia(pm.media_id), role: pm.role }))
 					.filter((x): x is { media: Media; role: typeof x.role } => !!x.media),
 				seoTitle: p.seo_title,
-				metaDescription: p.meta_description
+				metaDescription: p.meta_description,
+				updatedOn: day(p.updated_at)
 			};
 		});
 	const projectById = new Map(projects.map((p) => [p.id, p]));
